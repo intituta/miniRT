@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/05/31 11:54:47 by kferterb         ###   ########.fr       */
+/*   Created: 2022/05/31 11:54:16 by kferterb          #+#    #+#             */
+/*   Updated: 2022/05/31 14:18:48 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "minirt.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+t_scene	*new_scene(t_camera *cam, t_sphere *sphere)
+{
+	t_scene	*scene;
 
-# include <mlx.h>
-# include <utils.h>
-# include <vector.h>
-# include <scene.h>
-# include <camera.h>
-# include <sphere.h>
-
-#endif
+	scene = malloc(sizeof(t_scene));
+	if (!scene)
+		error_exit(-1);
+	scene->cams = cam;
+	scene->sphere = sphere;
+	scene->width = 0;
+	scene->height = 0;
+	return (scene);
+}

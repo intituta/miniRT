@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/05/31 11:54:47 by kferterb         ###   ########.fr       */
+/*   Created: 2022/05/31 11:49:03 by kferterb          #+#    #+#             */
+/*   Updated: 2022/05/31 14:19:08 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef SCENE_H
+# define SCENE_H
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+typedef struct s_scene
+{
+	t_camera	*cams;
+	t_sphere	*sphere;
+	float		width;
+	float		height;
+}	t_scene;
 
-# include <mlx.h>
-# include <utils.h>
-# include <vector.h>
-# include <scene.h>
-# include <camera.h>
-# include <sphere.h>
+t_scene	*new_scene(t_camera *cam, t_sphere *sphere);
 
 #endif
