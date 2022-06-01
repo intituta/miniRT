@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   view_plane.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/01 16:18:22 by kferterb         ###   ########.fr       */
+/*   Created: 2022/05/31 18:00:05 by kferterb          #+#    #+#             */
+/*   Updated: 2022/06/01 16:06:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef VIEW_PLANE_H
+# define VIEW_PLANE_H
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+typedef struct s_vplane
+{
+	float	width;
+	float	height;
+	float	x_pixel;
+	float	y_pixel;
+}	t_vplane;
 
-# include <mlx.h>
-# include <vector.h>
-# include <utils.h>
-# include <camera.h>
-# include <sphere.h>
-# include <scene.h>
-# include <view_plane.h>
+t_vplane	*get_view_plane(float width, float height, float fov);
+void		ray_tracing(void *mlx, void *window, t_scene *scene);
+int			sphere_intersect(t_camera *cam, t_v *ray, t_sphere *sphere);
 
 #endif

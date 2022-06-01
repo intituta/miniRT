@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 18:33:01 by kferterb          #+#    #+#             */
-/*   Updated: 2022/05/30 18:37:34 by kferterb         ###   ########.fr       */
+/*   Created: 2022/05/30 18:43:14 by kferterb          #+#    #+#             */
+/*   Updated: 2022/06/01 16:19:38 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_sphere	*new_sphere(t_v *center, float radius)
+t_camera	*new_cam(t_v *origin, t_v *direction, float fov)
 {
-	t_sphere	*sphere;
+	t_camera	*cam;
 
-	sphere = malloc(sizeof(t_sphere));
-	if (!sphere)
+	cam = malloc(sizeof(t_camera));
+	if (!cam)
 		error_exit(-1);
-	sphere->center = center;
-	sphere->radius = radius;
-	return (sphere);
+	cam->origin = origin;
+	cam->direction = direction;
+	cam->fov = fov;
+	return (cam);
 }

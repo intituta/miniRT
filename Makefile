@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:20:28 by kferterb          #+#    #+#              #
-#    Updated: 2022/05/30 12:20:47 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/01 16:19:00 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ DIR_HEADERS		= ./includes/
 
 DIR_SRCS		= ./srcs/
 
-SRC				= utils/error_exit.c utils/free_scene.c \
+SRC				= utils/error_exit.c \
 				  geometry/vector.c \
 				  scene/camera.c scene/scene.c \
 				  figures/sphere.c \
-				  ray_tracing/trace_ray.c \
+				  ray_tracing/ray_trace.c \
 				  intersections/sphere_intersect.c \
 				  main.c \
 
