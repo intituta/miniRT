@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 12:53:22 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/05 13:46:53 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	open_file(char *av, t_list *list)
 		input = ft_gnl(fd);
 		if (!input || !input[0])
 			break ;
+		if (!list)
+			list = ft_lstnew(ft_strdup(input));
+		else
+			ft_lstadd_back(&list, ft_lstnew(ft_strdup(input)));
 		free(input);
 	}
 	free(input);
@@ -45,13 +49,14 @@ int	check_format(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_list	list;
+	t_list	*list;
 
+	list = NULL;
 	if (ac != 2 && ac != 3)
 		return (write(2, "bad arguments\n", 14));
 	if (check_format(ac, av))
 		return (write(2, "bad arguments\n", 14));
-	if (open_file(av[1], &list))
+	if (open_file(av[1], list))
 		return (write(2, "bad file\n", 9));
 	return (0);
 }
