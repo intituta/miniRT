@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 09:42:51 by kferterb         ###   ########.fr       */
+/*   Created: 2022/03/04 12:26:01 by kferterb          #+#    #+#             */
+/*   Updated: 2022/03/04 12:29:08 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "libft.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_lstsize(t_list *lst)
+{
+	int		len;
 
-# include <mlx.h>
-# include "../libft/libft.h"
-
-char	*ft_gnl(int fd);
-
-#endif
+	if (!lst)
+		return (0);
+	len = 0;
+	while (lst)
+	{
+		len++;
+		lst = lst -> next;
+	}
+	return (len);
+}

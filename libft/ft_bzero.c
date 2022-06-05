@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 09:42:51 by kferterb         ###   ########.fr       */
+/*   Created: 2021/10/06 12:19:47 by kferterb          #+#    #+#             */
+/*   Updated: 2022/03/04 12:28:15 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "libft.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*j;
 
-# include <mlx.h>
-# include "../libft/libft.h"
-
-char	*ft_gnl(int fd);
-
-#endif
+	i = -1;
+	j = (unsigned char *)s;
+	while (++i < n)
+		j[i] = 0;
+	return (s);
+}

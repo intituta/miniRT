@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 09:42:51 by kferterb         ###   ########.fr       */
+/*   Created: 2021/10/11 13:50:39 by kferterb          #+#    #+#             */
+/*   Updated: 2022/03/04 12:30:16 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "libft.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
 
-# include <mlx.h>
-# include "../libft/libft.h"
-
-char	*ft_gnl(int fd);
-
-#endif
+	i = 0;
+	while (*s)
+	{
+		i++;
+		s++;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	s--;
+	while (i != 0)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s--;
+		i--;
+	}
+	return (0);
+}

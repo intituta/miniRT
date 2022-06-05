@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 09:42:51 by kferterb         ###   ########.fr       */
+/*   Created: 2021/10/09 19:39:44 by kferterb          #+#    #+#             */
+/*   Updated: 2022/03/04 12:29:18 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "libft.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t	i;
 
-# include <mlx.h>
-# include "../libft/libft.h"
-
-char	*ft_gnl(int fd);
-
-#endif
+	if (dst == src)
+		return (dst);
+	if (dst <= src)
+	{
+		i = -1;
+		while (++i < len)
+			((char *) dst)[i] = ((char *) src)[i];
+	}
+	else
+	{
+		while (len > 0)
+		{
+			((char *) dst)[len - 1] = ((char *) src)[len - 1];
+			len--;
+		}
+	}
+	return (dst);
+}

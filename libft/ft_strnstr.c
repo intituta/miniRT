@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 09:42:51 by kferterb         ###   ########.fr       */
+/*   Created: 2021/10/12 13:46:59 by kferterb          #+#    #+#             */
+/*   Updated: 2022/03/04 12:30:11 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "libft.h"
 
-# include <math.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strnstr(const char *h, const char *n, size_t len)
+{
+	size_t	i;
+	size_t	j;
 
-# include <mlx.h>
-# include "../libft/libft.h"
-
-char	*ft_gnl(int fd);
-
-#endif
+	i = 0;
+	if (!*n)
+		return ((char *)(h + i));
+	while (i < len && h[i])
+	{
+		j = 0;
+		if (h[i] == n[j])
+		{
+			while (h[i + j] == n[j] && (i + j < len) && n[j])
+				j++;
+			if (!n[j])
+				return ((char *)(h + i));
+		}
+		i++;
+	}
+	return (NULL);
+}
