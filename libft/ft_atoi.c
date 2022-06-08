@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:43:17 by kferterb          #+#    #+#             */
-/*   Updated: 2022/03/04 12:28:09 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/08 14:57:47 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 int	ft_atoi(const char *str)
 {
 	int			i;
-	long int	j;
-	int			k;
+	int			neg;
+	long long	res;
 
 	i = 0;
-	j = 0;
-	k = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
+	res = 0;
+	neg = 1;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			k = -1;
+			neg *= -1;
 		i++;
 	}
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (-1);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		j = j * 10 + k * (str[i] - '0');
+		res = res * 10 + neg * (str[i] - 48);
 		i++;
-		if (k == 1 && j < 0 && i > 18)
+		if (res > 2147483647 || res < -2147483648)
 			return (-1);
-		if (k == -1 && j > 0 && i > 19)
-			return (0);
 	}
-	return (j);
+	if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
+		return (-1);
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:25:54 by kferterb          #+#    #+#             */
-/*   Updated: 2022/03/04 12:29:04 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/06 10:10:52 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*head;
 
-	head = (t_list *)malloc(sizeof(t_list));
+	head = malloc(sizeof(t_list));
 	if (!head)
 		return (NULL);
 	head -> content = content;

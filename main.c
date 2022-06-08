@@ -6,13 +6,29 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 13:46:53 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:59:45 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minirt.h"
 
-int	open_file(char *av, t_list *list)
+void	ft_free_list(t_struct *o)
+{
+	while (o->list)
+	{
+		free(o->list->content);
+		free(o->list);
+		o->list = o->list->next;
+	}
+	while (o->final_list)
+	{
+		free(o->final_list->id);
+		free(o->final_list);
+		o->final_list = o->final_list->next;
+	}
+}
+
+int	open_file(char *av, t_struct *o)
 {
 	int		fd;
 	char	*input;
@@ -25,10 +41,10 @@ int	open_file(char *av, t_list *list)
 		input = ft_gnl(fd);
 		if (!input || !input[0])
 			break ;
-		if (!list)
-			list = ft_lstnew(ft_strdup(input));
+		if (!o->list)
+			o->list = ft_lstnew(ft_strdup(input));
 		else
-			ft_lstadd_back(&list, ft_lstnew(ft_strdup(input)));
+			ft_lstadd_back(&o->list, ft_lstnew(ft_strdup(input)));
 		free(input);
 	}
 	free(input);
@@ -49,14 +65,19 @@ int	check_format(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_list	*list;
+	t_struct	o;
 
-	list = NULL;
 	if (ac != 2 && ac != 3)
 		return (write(2, "bad arguments\n", 14));
 	if (check_format(ac, av))
-		return (write(2, "bad arguments\n", 14));
-	if (open_file(av[1], list))
+		return (write(2, "bad format\n", 11));
+	if (open_file(av[1], &o))
 		return (write(2, "bad file\n", 9));
+	o.lst_size = ft_lstsize(o.list);
+	if (!o.lst_size)
+		return (write(2, "no arguments\n", 13));
+	if (parsing(&o))
+		return (write(2, "invalid parse\n", 14));
+	ft_free_list(&o);
 	return (0);
 }
