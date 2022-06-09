@@ -6,11 +6,58 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/08 15:59:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/09 20:27:40 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minirt.h"
+
+void	print_c(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("X = %f\n", tmp->x);
+	printf("Y = %f\n", tmp->y);
+	printf("Z = %f\n", tmp->z);
+	printf("X norme = %f\n", tmp->n_vec1);
+	printf("Y norme = %f\n", tmp->n_vec2);
+	printf("Z norme = %f\n", tmp->n_vec3);
+	printf("fov = %d\n", tmp->fov);
+}
+
+void	print_a(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("range = %f\n", tmp->range);
+	printf("R = %d\n", tmp->r);
+	printf("G = %d\n", tmp->g);
+	printf("B = %d\n", tmp->b);
+}
+
+void	print_lists(t_struct *o)
+{
+	t_list	*tmp;
+
+	tmp = o->final_list;
+	while (tmp)
+	{
+		if (tmp->id[0] == 'A')
+			print_a(tmp);
+		else if (tmp->id[0] == 'C')
+			print_c(tmp);
+		printf("===========\n");
+		tmp = tmp->next;
+	}
+}
+
+void	ft_free(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
+}
 
 void	ft_free_list(t_struct *o)
 {
@@ -78,6 +125,7 @@ int	main(int ac, char **av)
 		return (write(2, "no arguments\n", 13));
 	if (parsing(&o))
 		return (write(2, "invalid parse\n", 14));
+	print_lists(&o);
 	ft_free_list(&o);
 	return (0);
 }

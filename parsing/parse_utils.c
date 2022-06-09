@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 12:25:54 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/09 17:36:26 by kferterb         ###   ########.fr       */
+/*   Created: 2022/06/09 20:31:55 by kferterb          #+#    #+#             */
+/*   Updated: 2022/06/09 20:32:21 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/minirt.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_rgb(t_list *tmp, char **rgb)
 {
-	t_list	*head;
+	tmp->r = ft_atoi(rgb[0]);
+	tmp->g = ft_atoi(rgb[1]);
+	tmp->b = ft_atoi(rgb[2]);
+	ft_free(rgb);
+}
 
-	head = malloc(sizeof(t_list));
-	if (!head)
-		return (NULL);
-	head -> content = content;
-	head -> next = NULL;
-	return (head);
+void	ft_xyz(t_list *tmp, char **xyz)
+{
+	tmp->x = atof(xyz[0]);
+	tmp->y = atof(xyz[1]);
+	tmp->z = atof(xyz[2]);
+	ft_free(xyz);
 }

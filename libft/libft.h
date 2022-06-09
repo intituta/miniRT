@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:30:40 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/08 13:14:53 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/09 17:00:17 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ typedef struct s_list
 {
 	void			*content;
 	char			*id;
-	float			range;
+	double			range;
+	double			x;
+	double			y;
+	double			z;
+	double			n_vec1;
+	double			n_vec2;
+	double			n_vec3;
+	int				fov;
 	int				r;
 	int				g;
 	int				b;
