@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/09 20:33:14 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:49:57 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_xyz(t_list *tmp, char **xyz);
 int		parsing(t_struct *o);
 int		parse_a(t_struct *o);
 int		parse_c(t_struct *o);
+int		parse_l(t_struct *o);
+int		parse_sp(t_struct *o);
 int		ft_check_count(char **strs, int count);
 
 #endif

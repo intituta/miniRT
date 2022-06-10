@@ -6,11 +6,35 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/09 20:27:40 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:54:34 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minirt.h"
+
+void	print_sp(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("X = %f\n", tmp->x);
+	printf("Y = %f\n", tmp->y);
+	printf("Z = %f\n", tmp->z);
+	printf("diametr = %f\n", tmp->diametr);
+	printf("R = %d\n", tmp->r);
+	printf("G = %d\n", tmp->g);
+	printf("B = %d\n", tmp->b);
+}
+
+void	print_l(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("range = %f\n", tmp->range);
+	printf("X = %f\n", tmp->x);
+	printf("Y = %f\n", tmp->y);
+	printf("Z = %f\n", tmp->z);
+	printf("R = %d\n", tmp->r);
+	printf("G = %d\n", tmp->g);
+	printf("B = %d\n", tmp->b);
+}
 
 void	print_c(t_list *tmp)
 {
@@ -44,6 +68,10 @@ void	print_lists(t_struct *o)
 			print_a(tmp);
 		else if (tmp->id[0] == 'C')
 			print_c(tmp);
+		else if (tmp->id[0] == 'L')
+			print_l(tmp);
+		else if (tmp->id[0] == 's' && tmp->id[1] == 'p')
+			print_sp(tmp);
 		printf("===========\n");
 		tmp = tmp->next;
 	}
@@ -122,9 +150,9 @@ int	main(int ac, char **av)
 		return (write(2, "bad file\n", 9));
 	o.lst_size = ft_lstsize(o.list);
 	if (!o.lst_size)
-		return (write(2, "no arguments\n", 13));
+		return (ft_free_list(&o), write(2, "no arguments\n", 13));
 	if (parsing(&o))
-		return (write(2, "invalid parse\n", 14));
+		return (ft_free_list(&o), write(2, "invalid parse\n", 14));
 	print_lists(&o);
 	ft_free_list(&o);
 	return (0);

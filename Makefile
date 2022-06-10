@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:20:28 by kferterb          #+#    #+#              #
-#    Updated: 2022/06/09 20:32:32 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/10 11:43:58 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS 		= 	main.c \
 				utils/gnl.c \
 				parsing/parsing.c \
 				parsing/parse_a_c_l.c \
+				parsing/parse_sp_pl_cy.c \
 				parsing/parse_utils.c \
 
 HEADER		=	includes/minirt.h

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:08:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/09 20:34:29 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 13:00:15 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ int	parsing(t_struct *o)
 			err = parse_c(o);
 		else if (ft_strlen(o->strs[0]) == 1 && o->strs[0][0] == 'L')
 			err = parse_l(o);
+		else if (ft_strlen(o->strs[0]) == 2 && !ft_strncmp(o->strs[0], "sp", 2))
+			err = parse_sp(o);
+		else
+			return (ft_free(o->strs), 1);
 		if (err)
-			return (1);
+			return (ft_free(o->strs), 1);
 		ft_free(o->strs);
 		tmp = tmp->next;
 	}
