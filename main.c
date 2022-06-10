@@ -6,11 +6,40 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 11:54:34 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:34:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minirt.h"
+
+void	print_cy(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("X = %f\n", tmp->x);
+	printf("Y = %f\n", tmp->y);
+	printf("Z = %f\n", tmp->z);
+	printf("X norme = %f\n", tmp->n_vec1);
+	printf("Y norme = %f\n", tmp->n_vec2);
+	printf("Z norme = %f\n", tmp->n_vec3);
+	printf("diametr = %f\n", tmp->diametr);
+	printf("R = %d\n", tmp->r);
+	printf("G = %d\n", tmp->g);
+	printf("B = %d\n", tmp->b);
+}
+
+void	print_pl(t_list *tmp)
+{
+	printf("id = %s\n", tmp->id);
+	printf("X = %f\n", tmp->x);
+	printf("Y = %f\n", tmp->y);
+	printf("Z = %f\n", tmp->z);
+	printf("X norme = %f\n", tmp->n_vec1);
+	printf("Y norme = %f\n", tmp->n_vec2);
+	printf("Z norme = %f\n", tmp->n_vec3);
+	printf("R = %d\n", tmp->r);
+	printf("G = %d\n", tmp->g);
+	printf("B = %d\n", tmp->b);
+}
 
 void	print_sp(t_list *tmp)
 {
@@ -59,20 +88,38 @@ void	print_a(t_list *tmp)
 
 void	print_lists(t_struct *o)
 {
+	int		i;
 	t_list	*tmp;
 
-	tmp = o->final_list;
+	tmp = o->figures;
 	while (tmp)
 	{
 		if (tmp->id[0] == 'A')
 			print_a(tmp);
-		else if (tmp->id[0] == 'C')
-			print_c(tmp);
-		else if (tmp->id[0] == 'L')
-			print_l(tmp);
 		else if (tmp->id[0] == 's' && tmp->id[1] == 'p')
 			print_sp(tmp);
-		printf("===========\n");
+		else if (tmp->id[0] == 'p' && tmp->id[1] == 'l')
+			print_pl(tmp);
+		else if (tmp->id[0] == 'c' && tmp->id[1] == 'y')
+			print_cy(tmp);
+		printf("=====figures======\n");
+		tmp = tmp->next;
+	}
+	i = -1;
+	tmp = o->cams;
+	while (++i < o->cam_lst_size)
+	{
+		if (tmp->id[0] == 'C')
+			print_c(tmp);
+		printf("======camera=====\n");
+		tmp = tmp->next;
+	}
+	tmp = o->lights;
+	while (tmp)
+	{
+		if (tmp->id[0] == 'L')
+			print_l(tmp);
+		printf("======lights=====\n");
 		tmp = tmp->next;
 	}
 }
@@ -89,17 +136,32 @@ void	ft_free(char **strs)
 
 void	ft_free_list(t_struct *o)
 {
+	int	i;
+
+	i = -1;
 	while (o->list)
 	{
 		free(o->list->content);
 		free(o->list);
 		o->list = o->list->next;
 	}
-	while (o->final_list)
+	while (o->figures)
 	{
-		free(o->final_list->id);
-		free(o->final_list);
-		o->final_list = o->final_list->next;
+		free(o->figures->id);
+		free(o->figures);
+		o->figures = o->figures->next;
+	}
+	while (++i < o->cam_lst_size)
+	{
+		free(o->cams->id);
+		free(o->cams);
+		o->cams = o->cams->next;
+	}
+	while (o->lights)
+	{
+		free(o->lights->id);
+		free(o->lights);
+		o->lights = o->lights->next;
 	}
 }
 
@@ -153,6 +215,7 @@ int	main(int ac, char **av)
 		return (ft_free_list(&o), write(2, "no arguments\n", 13));
 	if (parsing(&o))
 		return (ft_free_list(&o), write(2, "invalid parse\n", 14));
+	cycle_cams(&o);
 	print_lists(&o);
 	ft_free_list(&o);
 	return (0);

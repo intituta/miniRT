@@ -6,11 +6,19 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 20:31:55 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/09 20:32:21 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:20:11 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+void	ft_normalize(t_list *tmp, char **xyz)
+{
+	tmp->n_vec1 = atof(xyz[0]);
+	tmp->n_vec2 = atof(xyz[1]);
+	tmp->n_vec3 = atof(xyz[2]);
+	ft_free(xyz);
+}
 
 void	ft_rgb(t_list *tmp, char **rgb)
 {
