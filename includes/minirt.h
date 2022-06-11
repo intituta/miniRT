@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 17:33:04 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:30:22 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int		parse_sp(t_struct *o);
 int		parse_pl(t_struct *o);
 int		parse_cy(t_struct *o);
 int		ft_check_count(char **strs, int count);
+
+double	ft_atof(char *str);
 
 #endif

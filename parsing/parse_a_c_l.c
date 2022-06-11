@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:30:07 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 16:55:53 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:50:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	parse_l(t_struct *o)
 	o->lights = create_list(o->lights);
 	tmp = ft_lstlast(o->lights);
 	tmp->id = ft_strdup(o->strs[0]);
-	tmp->range = atof(o->strs[2]);
+	tmp->range = ft_atof(o->strs[2]);
 	ft_xyz(tmp, o->xyz);
 	o->xyz = ft_split(o->strs[3], ',');
 	if (ft_check_count(o->xyz, 3))
@@ -73,7 +73,7 @@ int	parse_a(t_struct *o)
 	o->figures = create_list(o->figures);
 	tmp = ft_lstlast(o->figures);
 	tmp->id = ft_strdup(o->strs[0]);
-	tmp->range = atof(o->strs[1]);
+	tmp->range = ft_atof(o->strs[1]);
 	ft_rgb(tmp, rgb);
 	if (tmp->range < 0 || tmp->range > 1 || tmp->r < 0 || tmp->r > 255
 		|| tmp->g < 0 || tmp->g > 255 || tmp->b < 0 || tmp->b > 255)

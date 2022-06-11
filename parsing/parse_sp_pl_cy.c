@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 11:43:28 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 16:55:20 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:49:38 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	parse_cy(t_struct *o)
 	if (ft_check_count(o->xyz, 3))
 		return (1);
 	ft_normalize(tmp, o->xyz);
-	tmp->diametr = atof(o->strs[3]);
-	tmp->height = atof(o->strs[4]);
+	tmp->diametr = ft_atof(o->strs[3]);
+	tmp->height = ft_atof(o->strs[4]);
 	o->xyz = ft_split(o->strs[5], ',');
 	ft_rgb(tmp, o->xyz);
 	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1
@@ -80,7 +80,7 @@ int	parse_sp(t_struct *o)
 	o->figures = create_list(o->figures);
 	tmp = ft_lstlast(o->figures);
 	tmp->id = ft_strdup(o->strs[0]);
-	tmp->diametr = atof(o->strs[2]);
+	tmp->diametr = ft_atof(o->strs[2]);
 	ft_xyz(tmp, o->xyz);
 	o->xyz = ft_split(o->strs[3], ',');
 	if (ft_check_count(o->xyz, 3))

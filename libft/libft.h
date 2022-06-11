@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:30:40 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 16:35:40 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/11 10:31:59 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char *s1, char *s2, int flag, int flag2);
 char	*ft_strnstr(const char *h, const char *n, size_t len);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 void	ft_putnbr_fd(int n, int fd);
 void	*ft_bzero(void *s, size_t n);
