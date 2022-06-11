@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 20:31:55 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/11 10:31:43 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:19:56 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,27 +43,27 @@ int	*ft_atof_utils(char *str, int *dot, int *count)
 double	ft_atof(char *str)
 {
 	int		i;
-	int		dot;
-	int		flag;
 	int		count;
 	int		*mass;
+	int		flag[2];
 	double	res;
 
 	i = -1;
-	dot = 0;
 	res = 0;
-	flag = 0;
+	flag[0] = 0;
+	flag[1] = 0;
 	if (str[0] == '-')
 	{
+		free(str);
 		str = ft_substr(str, 1, ft_strlen(str));
-		flag = 1;
+		flag[1] = 1;
 	}
-	mass = ft_atof_utils(str, &dot, &count);
-	while (++i < dot)
-		res = res + (double)mass[i] * (pow(10, dot - i - 1));
+	mass = ft_atof_utils(str, &flag[0], &count);
+	while (++i < flag[0])
+		res = res + (double)mass[i] * (pow(10, flag[0] - i - 1));
 	while (++i < count)
-		res = res + (double)mass[i] * (pow(10, dot - i - 1) * 10);
-	if (flag)
+		res = res + (double)mass[i] * (pow(10, flag[0] - i - 1) * 10);
+	if (flag[1])
 		res = res * -1;
 	return (free(mass), res);
 }
