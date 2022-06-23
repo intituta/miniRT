@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 11:43:28 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 19:49:38 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:34:00 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	parse_cy(t_struct *o)
 	tmp->diametr = ft_atof(o->strs[3]);
 	tmp->height = ft_atof(o->strs[4]);
 	o->xyz = ft_split(o->strs[5], ',');
+	if (ft_check_count(o->xyz, 3))
+		return (1);
 	ft_rgb(tmp, o->xyz);
 	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1
 		|| tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 > 1
@@ -59,6 +61,8 @@ int	parse_pl(t_struct *o)
 		return (1);
 	ft_normalize(tmp, o->xyz);
 	o->xyz = ft_split(o->strs[3], ',');
+	if (ft_check_count(o->xyz, 3))
+		return (1);
 	ft_rgb(tmp, o->xyz);
 	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1
 		|| tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 > 1 || tmp->r < 0

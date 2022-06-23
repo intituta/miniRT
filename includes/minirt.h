@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/10 19:30:22 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:37:24 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-# include <mlx.h>
+# include "../minilibx/mlx.h"
 # include "../libft/libft.h"
 
 typedef struct s_struct

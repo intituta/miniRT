@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/11 14:19:12 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:07:45 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,12 +139,6 @@ void	ft_free_list(t_struct *o)
 	int	i;
 
 	i = -1;
-	while (o->list)
-	{
-		free(o->list->content);
-		free(o->list);
-		o->list = o->list->next;
-	}
 	while (o->figures)
 	{
 		free(o->figures->id);
@@ -162,6 +156,12 @@ void	ft_free_list(t_struct *o)
 		free(o->lights->id);
 		free(o->lights);
 		o->lights = o->lights->next;
+	}
+	while (o->list)
+	{
+		free(o->list->content);
+		free(o->list);
+		o->list = o->list->next;
 	}
 }
 
@@ -200,10 +200,23 @@ int	check_format(int ac, char **av)
 	return (0);
 }
 
+void	init_struct(t_struct *o)
+{
+	o->xyz = NULL;
+	o->cams = NULL;
+	o->list = NULL;
+	o->strs = NULL;
+	o->lst_size = 0;
+	o->lights = NULL;
+	o->figures = NULL;
+	o->cam_lst_size = 0;
+}
+
 int	main(int ac, char **av)
 {
 	t_struct	o;
 
+	init_struct(&o);
 	if (ac != 2 && ac != 3)
 		return (write(2, "bad arguments\n", 14));
 	if (check_format(ac, av))

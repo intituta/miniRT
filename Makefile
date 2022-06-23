@@ -6,57 +6,47 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:20:28 by kferterb          #+#    #+#              #
-#    Updated: 2022/06/10 11:43:58 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/23 18:35:55 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	miniRT
 
-SRCS 		= 	main.c \
-				utils/gnl.c \
-				parsing/parsing.c \
-				parsing/parse_a_c_l.c \
-				parsing/parse_sp_pl_cy.c \
-				parsing/parse_utils.c \
-
-HEADER		=	includes/minirt.h
-
-OBJ 		=	$(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRCS)))
-
-OBJ_DIR		=	obj/
-
-UTILS_DIR	=	obj/utils/
-
-PARSE_DIR	=	obj/parsing/
-
-LIB_PATH	= 	libft/
-
-LINKS		= 	-I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
-
 CC			=	gcc
+CFLAGC		=	-Wall -Werror -Wextra
+RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror -I$(HEADER)
+HEADER_DIR	=	inculdes/
+PARS_DIR	=	parsing/
+UTILS_DIR	=	utils/
 
-.PHONY:		 	all bonus clean fclean re
+HEADER		=	$(addprefix $(HEADER_DIR),	minirt.h)
+MLX			=	-L minilibx -lmlx -framework OpenGL -framework AppKit
+LIB			=	-L libft -lft
+PARS		=	$(addprefix $(PARS_DIR),	parse_a_c_l.c	parse_sp_pl_cy.c	parse_utils.c	parsing.c)
+UTILS		=	$(addprefix $(UTILS_DIR),	gnl.c			../main.c)
 
-all:			makelibft $(NAME)
+OBJS		=	$(PARS:%.c=%.o) $(UTILS:%.c=%.o)
 
-makelibft:
-				@make -C $(LIB_PATH) all
+.PHONY		:	all clean fclean re
 
-$(NAME):		$(HEADER) $(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) $(LIB_PATH)libft.a $(LINKS) -o $(NAME)
+all			:	$(NAME)
 
-$(OBJ_DIR)%.o:	%.c $(HEADER)
-				@mkdir -p $(OBJ_DIR) $(UTILS_DIR) $(PARSE_DIR)
-				$(CC) $(FLAGS) -c $< -o $@
+$(NAME)		:	$(OBJS)
+				@make -C libft
+				@make -C minilibx
+				$(CC) $(CFLAGC) $(LIB) $(MLX) $(OBJS) -o $(NAME)
 
-clean:
-				@rm -rf $(OBJ_DIR) $(OBJ_DIR)
-				@make -C $(LIB_PATH) clean
+%.o			:	%.c %(HEADER)
+				$(CC) $(CFLAGC) -I minilibx mlx -c $< -o $(NAME)
 
-fclean:			clean
-				@$(RM) $(NAME)
-				@make -C $(LIB_PATH) fclean
+clean		:	
+				@make -C libft clean
+				@make -C minilibx clean
+				$(RM) $(OBJS)
 
-re:				fclean all
+fclean		:	clean
+				@make -C libft fclean
+				$(RM) $(NAME)
+
+re			:	fclean all

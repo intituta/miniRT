@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 12:30:52 by kferterb          #+#    #+#              #
-#    Updated: 2022/06/05 11:05:04 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/23 16:26:00 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJ_BONUS	=	$(SRCS_BONUS:%.c=%.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -I$(HEADER)
+CFLAGS		=	-Wall -Wextra -Werror
 
 .PHONY		:	all clean fclean re
 
