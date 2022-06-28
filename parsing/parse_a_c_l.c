@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:30:07 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 18:28:02 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:03:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	parse_a(t_struct *o)
 	rgb = ft_split(o->strs[2], ',');
 	if (ft_check_count(rgb, 3))
 		return (1);
-	o->figures = create_list(o->figures);
-	tmp = ft_lstlast(o->figures);
+	o->ambient_light = create_list(o->ambient_light);
+	tmp = ft_lstlast(o->ambient_light);
 	tmp->id = ft_strdup(o->strs[0]);
 	tmp->range = ft_atof(o->strs[1]);
 	ft_rgb(tmp, rgb);

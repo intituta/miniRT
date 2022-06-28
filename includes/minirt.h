@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 16:37:24 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:03:03 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_struct
 	t_list	*cams;
 	t_list	*lights;
 	t_list	*figures;
+	t_list	*ambient_light;
 }	t_struct;
 
 char	*ft_gnl(int fd);

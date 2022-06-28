@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 19:07:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/28 19:15:33 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,7 @@ void	print_lists(t_struct *o)
 	tmp = o->figures;
 	while (tmp)
 	{
-		if (tmp->id[0] == 'A')
-			print_a(tmp);
-		else if (tmp->id[0] == 's' && tmp->id[1] == 'p')
+		if (tmp->id[0] == 's' && tmp->id[1] == 'p')
 			print_sp(tmp);
 		else if (tmp->id[0] == 'p' && tmp->id[1] == 'l')
 			print_pl(tmp);
@@ -120,6 +118,14 @@ void	print_lists(t_struct *o)
 		if (tmp->id[0] == 'L')
 			print_l(tmp);
 		printf("======lights=====\n");
+		tmp = tmp->next;
+	}
+	tmp = o->ambient_light;
+	while (tmp)
+	{
+		if (tmp->id[0] == 'A')
+			print_a(tmp);
+		printf("======Ambient=====\n");
 		tmp = tmp->next;
 	}
 }
@@ -162,6 +168,12 @@ void	ft_free_list(t_struct *o)
 		free(o->list->content);
 		free(o->list);
 		o->list = o->list->next;
+	}
+	while (o->ambient_light)
+	{
+		free(o->ambient_light->id);
+		free(o->ambient_light);
+		o->ambient_light = o->ambient_light->next;
 	}
 }
 
@@ -209,6 +221,7 @@ void	init_struct(t_struct *o)
 	o->lst_size = 0;
 	o->lights = NULL;
 	o->figures = NULL;
+	o->ambient_light = NULL;
 	o->cam_lst_size = 0;
 }
 
@@ -228,6 +241,10 @@ int	main(int ac, char **av)
 		return (ft_free_list(&o), write(2, "no arguments\n", 13));
 	if (parsing(&o))
 		return (ft_free_list(&o), write(2, "invalid parse\n", 14));
+	if (!ft_lstsize(o.cams))
+		return (ft_free_list(&o), write(2, "no camera\n", 10));
+	if (ft_lstsize(o.ambient_light) > 1)
+		return (ft_free_list(&o), write(2, "a lot ambient light\n", 20));
 	cycle_cams(&o);
 	print_lists(&o);
 	ft_free_list(&o);
