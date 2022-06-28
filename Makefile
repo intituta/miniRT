@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:20:28 by kferterb          #+#    #+#              #
-#    Updated: 2022/06/23 18:35:55 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/28 10:44:20 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME)		:	$(OBJS)
 				@make -C minilibx
 				$(CC) $(CFLAGC) $(LIB) $(MLX) $(OBJS) -o $(NAME)
 
-%.o			:	%.c %(HEADER)
+%.o			:	%.c $(HEADER)
 				$(CC) $(CFLAGC) -I minilibx mlx -c $< -o $(NAME)
 
 clean		:	
