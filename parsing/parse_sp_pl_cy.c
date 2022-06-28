@@ -6,11 +6,21 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 11:43:28 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 19:34:00 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:00:38 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
+
+int	check_cy(t_list	*tmp)
+{
+	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1
+		|| tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 > 1
+		|| tmp->r < 0 || tmp->r > 255 || tmp->g < 0 || tmp->g > 255
+		|| tmp->b < 0 || tmp->b > 255 || tmp->diametr <= 0 || tmp->height <= 0)
+		return (1);
+	return (0);
+}
 
 int	parse_cy(t_struct *o)
 {
@@ -35,10 +45,7 @@ int	parse_cy(t_struct *o)
 	if (ft_check_count(o->xyz, 3))
 		return (1);
 	ft_rgb(tmp, o->xyz);
-	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1
-		|| tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 > 1
-		|| tmp->r < 0 || tmp->r > 255 || tmp->g < 0 || tmp->g > 255
-		|| tmp->b < 0 || tmp->b > 255 || tmp->diametr <= 0 || tmp->height <= 0)
+	if (check_cy(tmp))
 		return (1);
 	return (0);
 }
