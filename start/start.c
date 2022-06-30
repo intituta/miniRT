@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 10:34:25 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 11:24:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 11:28:18 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	start(t_struct *o)
 {
 	o->mlx_ptr = mlx_init();
 	o->win_ptr = mlx_new_window(o->mlx_ptr, 1920, 1080, "miniRT");
+	render(o);
 	mlx_hook(o->win_ptr, 2, 1L, ft_key_hook, o);
 	mlx_hook(o->win_ptr, 17, 0L, &quit, NULL);
 	mlx_loop(o->mlx_ptr);
