@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 10:42:22 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:43:07 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_struct
 }	t_struct;
 
 char	*ft_gnl(int fd);
+char	**ft_split_mod(char const *s);
 
 t_list	*create_list(t_list *list);
 

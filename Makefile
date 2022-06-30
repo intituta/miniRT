@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 12:20:28 by kferterb          #+#    #+#              #
-#    Updated: 2022/06/30 10:37:04 by kferterb         ###   ########.fr        #
+#    Updated: 2022/06/30 17:48:53 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADER			=	$(addprefix $(HEADER_DIR),	minirt.h)
 MLX				=	-L minilibx -lmlx -framework OpenGL -framework AppKit
 LIB				=	-L libft -lft
 PARS			=	$(addprefix $(PARS_DIR),		parse_a_c_l.c	parse_sp_pl_cy.c	parse_utils.c	parsing.c)
-UTILS			=	$(addprefix $(UTILS_DIR),		gnl.c			../main.c)
+UTILS			=	$(addprefix $(UTILS_DIR),		gnl.c			ft_split_mod.c		../main.c)
 RAYTRACE		=	$(addprefix $(RAYTRACE_DIR),	start.c			render.c)
 
 OBJS			=	$(PARS:%.c=%.o) $(UTILS:%.c=%.o) $(RAYTRACE:%.c=%.o)

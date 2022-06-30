@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:08:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 19:09:12 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:44:43 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	parsing(t_struct *o)
 	while (tmp)
 	{	
 		err = 0;
-		o->strs = ft_split(tmp->content, ' ');
+		o->strs = ft_split_mod(tmp->content);
 		if (if_else(o, &err) || err)
 			return (ft_free(o->strs), 1);
 		ft_free(o->strs);

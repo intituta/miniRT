@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 10:30:17 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:13:11 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,8 +221,10 @@ void	init_struct(t_struct *o)
 	o->lst_size = 0;
 	o->lights = NULL;
 	o->figures = NULL;
-	o->ambient_light = NULL;
+	o->mlx_ptr = NULL;
+	o->win_ptr = NULL;
 	o->cam_lst_size = 0;
+	o->ambient_light = NULL;
 }
 
 int	main(int ac, char **av)
@@ -248,6 +250,6 @@ int	main(int ac, char **av)
 	cycle_cams(&o);
 	print_lists(&o);
 	free_list(&o);
-	start(&o);
+	//start(&o);
 	return (0);
 }
