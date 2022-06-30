@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 16:13:11 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 20:14:17 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,14 @@ int	open_file(char *av, t_struct *o)
 	while (1)
 	{
 		input = ft_gnl(fd);
-		if (!input || !input[0])
+		if (!input)
 			break ;
+		if (input[0] == '\0')
+		{
+			free(input);
+			continue ;
+		}
+		printf("==%s\n", input);
 		if (!o->list)
 			o->list = ft_lstnew(ft_strdup(input));
 		else
