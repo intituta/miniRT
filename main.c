@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/28 19:15:33 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 10:30:17 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	ft_free(char **strs)
 	free(strs);
 }
 
-void	ft_free_list(t_struct *o)
+void	free_list(t_struct *o)
 {
 	int	i;
 
@@ -238,15 +238,16 @@ int	main(int ac, char **av)
 		return (write(2, "bad file\n", 9));
 	o.lst_size = ft_lstsize(o.list);
 	if (!o.lst_size)
-		return (ft_free_list(&o), write(2, "no arguments\n", 13));
+		return (free_list(&o), write(2, "no arguments\n", 13));
 	if (parsing(&o))
-		return (ft_free_list(&o), write(2, "invalid parse\n", 14));
+		return (free_list(&o), write(2, "invalid parse\n", 14));
 	if (!ft_lstsize(o.cams))
-		return (ft_free_list(&o), write(2, "no camera\n", 10));
+		return (free_list(&o), write(2, "no camera\n", 10));
 	if (ft_lstsize(o.ambient_light) > 1)
-		return (ft_free_list(&o), write(2, "a lot ambient light\n", 20));
+		return (free_list(&o), write(2, "a lot ambient light\n", 20));
 	cycle_cams(&o);
 	print_lists(&o);
-	ft_free_list(&o);
+	free_list(&o);
+	start(&o);
 	return (0);
 }

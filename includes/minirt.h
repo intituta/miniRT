@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/28 19:03:03 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 10:37:46 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	*ft_gnl(int fd);
 
 t_list	*create_list(t_list *list);
 
+void	start(t_struct *o);
+void	render(t_struct *o);
 void	ft_free(char **strs);
 void	cycle_cams(t_struct *o);
 void	ft_rgb(t_list *tmp, char **rgb);
