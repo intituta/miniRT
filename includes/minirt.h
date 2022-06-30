@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 10:37:46 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/06/30 10:42:22 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@
 
 typedef struct s_struct
 {
+	void	*mlx_ptr;
+	void	*win_ptr;
 	int		lst_size;
 	int		cam_lst_size;
-	char	**strs;
 	char	**xyz;
+	char	**strs;
 	t_list	*list;
 	t_list	*cams;
 	t_list	*lights;
