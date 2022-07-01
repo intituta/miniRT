@@ -6,19 +6,11 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:39:06 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 18:56:31 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:46:04 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
-
-static int	set_checker(char c)
-{
-	if (c == '\t' || c == '\v' || c == '\n'
-		|| c == '\r' || c == '\f' || c == ' ')
-		return (1);
-	return (0);
-}
 
 static int	ft_count_word(char const *s)
 {

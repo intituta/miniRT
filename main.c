@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:43:09 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:49:27 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,53 +130,6 @@ void	print_lists(t_struct *o)
 	}
 }
 
-void	ft_free(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-		free(strs[i++]);
-	free(strs);
-}
-
-void	free_list(t_struct *o)
-{
-	int	i;
-
-	i = -1;
-	while (o->figures)
-	{
-		free(o->figures->id);
-		free(o->figures);
-		o->figures = o->figures->next;
-	}
-	while (++i < o->cam_lst_size)
-	{
-		free(o->cams->id);
-		free(o->cams);
-		o->cams = o->cams->next;
-	}
-	while (o->lights)
-	{
-		free(o->lights->id);
-		free(o->lights);
-		o->lights = o->lights->next;
-	}
-	while (o->list)
-	{
-		free(o->list->content);
-		free(o->list);
-		o->list = o->list->next;
-	}
-	while (o->ambient_light)
-	{
-		free(o->ambient_light->id);
-		free(o->ambient_light);
-		o->ambient_light = o->ambient_light->next;
-	}
-}
-
 int	open_file(char *av, t_struct *o)
 {
 	int		fd;
@@ -255,7 +208,7 @@ int	main(int ac, char **av)
 	if (ft_lstsize(o.figures) <= 0)
 		return (free_list(&o), write(2, "no figures\n", 11));
 	print_lists(&o);
-	free_list(&o);
 	//start(&o);
+	free_list(&o);
 	return (0);
 }

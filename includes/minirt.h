@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 17:43:07 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:50:29 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ t_list	*create_list(t_list *list);
 void	start(t_struct *o);
 void	render(t_struct *o);
 void	ft_free(char **strs);
+void	free_list(t_struct *o);
 void	cycle_cams(t_struct *o);
 void	ft_rgb(t_list *tmp, char **rgb);
 void	ft_xyz(t_list *tmp, char **xyz);
 void	ft_normalize(t_list *tmp, char **xyz);
 
+int		set_checker(char c);
 int		parsing(t_struct *o);
 int		parse_a(t_struct *o);
 int		parse_c(t_struct *o);
