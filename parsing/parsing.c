@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:08:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 17:44:43 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:11:09 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	cycle_cams(t_struct *o)
 
 int	if_else(t_struct *o, int *err)
 {
+	if (o->strs[0][0] == '#')
+		return (0);
 	if (ft_strlen(o->strs[0]) == 1 && o->strs[0][0] == 'A')
-			*err = parse_a(o);
+		*err = parse_a(o);
 	else if (ft_strlen(o->strs[0]) == 1 && o->strs[0][0] == 'C')
 		*err = parse_c(o);
 	else if (ft_strlen(o->strs[0]) == 1 && o->strs[0][0] == 'L')

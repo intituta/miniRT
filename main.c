@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/30 20:14:17 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:13:11 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,6 @@ int	open_file(char *av, t_struct *o)
 			free(input);
 			continue ;
 		}
-		printf("==%s\n", input);
 		if (!o->list)
 			o->list = ft_lstnew(ft_strdup(input));
 		else
@@ -251,8 +250,10 @@ int	main(int ac, char **av)
 		return (free_list(&o), write(2, "invalid parse\n", 14));
 	if (!ft_lstsize(o.cams))
 		return (free_list(&o), write(2, "no camera\n", 10));
-	if (ft_lstsize(o.ambient_light) > 1)
-		return (free_list(&o), write(2, "a lot ambient light\n", 20));
+	if (ft_lstsize(o.ambient_light) != 1)
+		return (free_list(&o), write(2, "error ambient light\n", 20));
+	if (ft_lstsize(o.figures) <= 0)
+		return (free_list(&o), write(2, "no figures\n", 11));
 	cycle_cams(&o);
 	print_lists(&o);
 	free_list(&o);
