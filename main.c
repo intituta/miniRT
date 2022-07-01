@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:13:11 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:36:50 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,16 +245,15 @@ int	main(int ac, char **av)
 		return (write(2, "bad file\n", 9));
 	o.lst_size = ft_lstsize(o.list);
 	if (!o.lst_size)
-		return (free_list(&o), write(2, "no arguments\n", 13));
+		return (free_list(&o), write(2, "invalid arguments\n", 18));
 	if (parsing(&o))
 		return (free_list(&o), write(2, "invalid parse\n", 14));
-	if (!ft_lstsize(o.cams))
+	if (o.cam_lst_size <= 0)
 		return (free_list(&o), write(2, "no camera\n", 10));
 	if (ft_lstsize(o.ambient_light) != 1)
-		return (free_list(&o), write(2, "error ambient light\n", 20));
+		return (free_list(&o), write(2, "invalid ambient\n", 16));
 	if (ft_lstsize(o.figures) <= 0)
 		return (free_list(&o), write(2, "no figures\n", 11));
-	cycle_cams(&o);
 	print_lists(&o);
 	free_list(&o);
 	//start(&o);

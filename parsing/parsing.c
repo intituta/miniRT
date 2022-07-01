@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:08:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:11:09 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:35:18 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	cycle_cams(t_struct *o)
 {
 	t_list	*tmp;
 
-	o->cam_lst_size = ft_lstsize(o->cams);
 	tmp = ft_lstlast(o->cams);
 	tmp->next = o->cams;
 }
@@ -78,5 +77,6 @@ int	parsing(t_struct *o)
 		ft_free(o->strs);
 		tmp = tmp->next;
 	}
+	cycle_cams(o);
 	return (0);
 }

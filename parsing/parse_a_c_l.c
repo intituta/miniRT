@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:30:07 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/28 19:03:55 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:37:27 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	parse_c(t_struct *o)
 	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1 || tmp->n_vec1
 		+ tmp->n_vec2 + tmp->n_vec3 > 1 || tmp->fov > 180 || tmp->fov < 0)
 		return (1);
+	o->cam_lst_size++;
 	return (0);
 }
 
