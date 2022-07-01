@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 20:31:55 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/11 14:19:56 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:03:06 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ double	ft_atof(char *str)
 	return (free(mass), res);
 }
 
-void	ft_normalize(t_list *tmp, char **xyz)
+void	normalize(t_list *tmp, char **xyz)
 {
 	tmp->n_vec1 = ft_atof(xyz[0]);
 	tmp->n_vec2 = ft_atof(xyz[1]);
@@ -76,7 +76,7 @@ void	ft_normalize(t_list *tmp, char **xyz)
 	ft_free(xyz);
 }
 
-void	ft_rgb(t_list *tmp, char **rgb)
+void	rgb(t_list *tmp, char **rgb)
 {
 	tmp->r = ft_atoi(rgb[0]);
 	tmp->g = ft_atoi(rgb[1]);
@@ -84,7 +84,7 @@ void	ft_rgb(t_list *tmp, char **rgb)
 	ft_free(rgb);
 }
 
-void	ft_xyz(t_list *tmp, char **xyz)
+void	xyz(t_list *tmp, char **xyz)
 {
 	tmp->x = ft_atof(xyz[0]);
 	tmp->y = ft_atof(xyz[1]);

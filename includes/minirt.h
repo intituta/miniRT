@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:50:29 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:35:34 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_struct
 }	t_struct;
 
 char	*ft_gnl(int fd);
-char	**ft_split_mod(char const *s);
+char	**split_mod(char const *s);
 
 t_list	*create_list(t_list *list);
 
@@ -49,9 +49,9 @@ void	render(t_struct *o);
 void	ft_free(char **strs);
 void	free_list(t_struct *o);
 void	cycle_cams(t_struct *o);
-void	ft_rgb(t_list *tmp, char **rgb);
-void	ft_xyz(t_list *tmp, char **xyz);
-void	ft_normalize(t_list *tmp, char **xyz);
+void	rgb(t_list *tmp, char **rgb);
+void	xyz(t_list *tmp, char **xyz);
+void	normalize(t_list *tmp, char **xyz);
 
 int		set_checker(char c);
 int		parsing(t_struct *o);
@@ -61,7 +61,7 @@ int		parse_l(t_struct *o);
 int		parse_sp(t_struct *o);
 int		parse_pl(t_struct *o);
 int		parse_cy(t_struct *o);
-int		ft_check_count(char **strs, int count);
+int		check_count(char **strs, int count);
 
 double	ft_atof(char *str);
 

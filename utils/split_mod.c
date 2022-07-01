@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:39:06 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:46:04 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:01:50 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char	**ft_fill_word(char const *s, int count, char **str)
 	return (str);
 }
 
-char	**ft_split_mod(char const *s)
+char	**split_mod(char const *s)
 {
 	char	**str;
 	int		count;

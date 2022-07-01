@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:08:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:35:18 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:35:10 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	if_else(t_struct *o, int *err)
 	return (0);
 }
 
-int	ft_check_count(char **strs, int count)
+int	check_count(char **strs, int count)
 {
 	int		i;
 
@@ -71,7 +71,7 @@ int	parsing(t_struct *o)
 	while (tmp)
 	{	
 		err = 0;
-		o->strs = ft_split_mod(tmp->content);
+		o->strs = split_mod(tmp->content);
 		if (if_else(o, &err) || err)
 			return (ft_free(o->strs), 1);
 		ft_free(o->strs);

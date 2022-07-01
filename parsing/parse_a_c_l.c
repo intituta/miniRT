@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:30:07 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:37:27 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 11:38:56 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ int	parse_l(t_struct *o)
 {
 	t_list	*tmp;
 
-	if (ft_check_count(o->strs, 4))
+	if (check_count(o->strs, 4))
 		return (1);
 	o->xyz = ft_split(o->strs[1], ',');
-	if (ft_check_count(o->xyz, 3))
+	if (check_count(o->xyz, 3))
 		return (1);
 	o->lights = create_list(o->lights);
 	tmp = ft_lstlast(o->lights);
 	tmp->id = ft_strdup(o->strs[0]);
 	tmp->range = ft_atof(o->strs[2]);
-	ft_xyz(tmp, o->xyz);
+	xyz(tmp, o->xyz);
 	o->xyz = ft_split(o->strs[3], ',');
-	if (ft_check_count(o->xyz, 3))
+	if (check_count(o->xyz, 3))
 		return (1);
-	ft_rgb(tmp, o->xyz);
+	rgb(tmp, o->xyz);
 	if (tmp->range < 0 || tmp->range > 1 || tmp->r < 0 || tmp->r > 255
 		|| tmp->g < 0 || tmp->g > 255 || tmp->b < 0 || tmp->b > 255)
 		return (1);
@@ -40,19 +40,19 @@ int	parse_c(t_struct *o)
 {
 	t_list	*tmp;
 
-	if (ft_check_count(o->strs, 4))
+	if (check_count(o->strs, 4))
 		return (1);
 	o->xyz = ft_split(o->strs[1], ',');
-	if (ft_check_count(o->xyz, 3))
+	if (check_count(o->xyz, 3))
 		return (1);
 	o->cams = create_list(o->cams);
 	tmp = ft_lstlast(o->cams);
 	tmp->id = ft_strdup(o->strs[0]);
-	ft_xyz(tmp, o->xyz);
+	xyz(tmp, o->xyz);
 	o->xyz = ft_split(o->strs[2], ',');
-	if (ft_check_count(o->xyz, 3))
+	if (check_count(o->xyz, 3))
 		return (1);
-	ft_normalize(tmp, o->xyz);
+	normalize(tmp, o->xyz);
 	tmp->fov = ft_atoi(o->strs[3]);
 	if (tmp->n_vec1 + tmp->n_vec2 + tmp->n_vec3 < -1 || tmp->n_vec1
 		+ tmp->n_vec2 + tmp->n_vec3 > 1 || tmp->fov > 180 || tmp->fov < 0)
@@ -64,18 +64,18 @@ int	parse_c(t_struct *o)
 int	parse_a(t_struct *o)
 {
 	t_list	*tmp;
-	char	**rgb;
+	char	**col_rgb;
 
-	if (ft_check_count(o->strs, 3))
+	if (check_count(o->strs, 3))
 		return (1);
-	rgb = ft_split(o->strs[2], ',');
-	if (ft_check_count(rgb, 3))
+	col_rgb = ft_split(o->strs[2], ',');
+	if (check_count(col_rgb, 3))
 		return (1);
 	o->ambient_light = create_list(o->ambient_light);
 	tmp = ft_lstlast(o->ambient_light);
 	tmp->id = ft_strdup(o->strs[0]);
 	tmp->range = ft_atof(o->strs[1]);
-	ft_rgb(tmp, rgb);
+	rgb(tmp, col_rgb);
 	if (tmp->range < 0 || tmp->range > 1 || tmp->r < 0 || tmp->r > 255
 		|| tmp->g < 0 || tmp->g > 255 || tmp->b < 0 || tmp->b > 255)
 		return (1);
