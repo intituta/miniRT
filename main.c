@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 10:36:50 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 10:38:18 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,10 +248,10 @@ int	main(int ac, char **av)
 		return (free_list(&o), write(2, "invalid arguments\n", 18));
 	if (parsing(&o))
 		return (free_list(&o), write(2, "invalid parse\n", 14));
-	if (o.cam_lst_size <= 0)
-		return (free_list(&o), write(2, "no camera\n", 10));
 	if (ft_lstsize(o.ambient_light) != 1)
 		return (free_list(&o), write(2, "invalid ambient\n", 16));
+	if (o.cam_lst_size <= 0)
+		return (free_list(&o), write(2, "no camera\n", 10));
 	if (ft_lstsize(o.figures) <= 0)
 		return (free_list(&o), write(2, "no figures\n", 11));
 	print_lists(&o);
