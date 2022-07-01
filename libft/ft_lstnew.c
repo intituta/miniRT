@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:25:54 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/23 18:31:12 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:24:13 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(void *content)
 
 	head = malloc(sizeof(t_list));
 	if (!head)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	head -> content = content;
 	head -> next = NULL;
 	return (head);

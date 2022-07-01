@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_mod.c                                     :+:      :+:    :+:   */
+/*   split_mod.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:39:06 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 11:01:50 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:26:48 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	*ft_mem_free(char **str, int count)
 	while (++i < count)
 		free(str[i]);
 	free(str);
-	return (NULL);
+	exit(write(2, "error malloc", 12));
 }
 
 static int	ft_len_word(char const *s)
@@ -79,11 +79,11 @@ char	**split_mod(char const *s)
 	int		count;
 
 	if (!s)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	count = ft_count_word(s);
 	str = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!str)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	str = ft_fill_word(s, count, str);
 	return (str);
 }

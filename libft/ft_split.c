@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:39:06 by kferterb          #+#    #+#             */
-/*   Updated: 2022/03/04 12:29:32 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:44:50 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_mem_free(char **str, int count)
 	while (++i < count)
 		free(str[i]);
 	free(str);
-	return (NULL);
+	exit(write(2, "error malloc", 12));
 }
 
 int	ft_len_word(char const *s, char c)
@@ -79,11 +79,11 @@ char	**ft_split(char const *s, char c)
 	int		count;
 
 	if (!s)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	count = ft_count_word(s, c);
 	str = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!str)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	str = ft_fill_word(s, c, count, str);
 	return (str);
 }

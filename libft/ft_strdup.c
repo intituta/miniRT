@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:40:50 by kferterb          #+#    #+#             */
-/*   Updated: 2022/03/04 12:29:46 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:24:56 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	str = (char *)malloc(sizeof(*str) * (i + 1));
 	if (str == NULL)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	j = -1;
 	while (++j < i)
 		str[j] = s1[j];

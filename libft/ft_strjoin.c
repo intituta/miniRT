@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:26:13 by kferterb          #+#    #+#             */
-/*   Updated: 2022/06/05 12:51:26 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:25:05 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char *s1, char *s2, int flag, int flag2)
 		return (NULL);
 	res = malloc(sizeof(*res) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!res)
-		return (NULL);
+		exit(write(2, "error malloc", 12));
 	i = -1;
 	while (++i >= 0 && s1 && s1[i])
 		res[i] = s1[i];
