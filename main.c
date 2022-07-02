@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:26:57 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/01 16:35:52 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:37:35 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,16 +172,26 @@ int	check_format(int ac, char **av)
 
 void	init_struct(t_struct *o)
 {
+	o->width = 800;
+	o->height = 600;
+	o->x = 0;
+	o->y = 0;
+	o->bpp = 0;
+	o->endian = 0;
+	o->lst_size = 0;
+	o->local_color = 0;
+	o->line_lenght = 0;
+	o->cam_lst_size = 0;
+	o->img = NULL;
 	o->xyz = NULL;
+	o->addr = NULL;
 	o->cams = NULL;
 	o->list = NULL;
 	o->strs = NULL;
-	o->lst_size = 0;
 	o->lights = NULL;
 	o->figures = NULL;
 	o->mlx_ptr = NULL;
 	o->win_ptr = NULL;
-	o->cam_lst_size = 0;
 	o->ambient_light = NULL;
 }
 
@@ -208,7 +218,7 @@ int	main(int ac, char **av)
 	if (ft_lstsize(o.figures) <= 0)
 		return (free_list(&o), write(2, "no figures\n", 11));
 	print_lists(&o);
-	//start(&o);
+	start(&o);
 	free_list(&o);
 	return (0);
 }
