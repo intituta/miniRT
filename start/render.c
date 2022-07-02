@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 10:36:25 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/02 20:19:16 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:44:46 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	render(t_struct *o)
 		o->x = -o->width / 2;
 		while (++o->x < o->width / 2 - 1)
 		{
-			mlx_pixel_put(o->mlx_ptr, o->win_ptr, o->x + 400, o->y + 300, 0xFFFFFF);
+			mlx_pixel_put(o->mlx_ptr, o->win_ptr, o->x + o->width / 2, o->y + o->height / 2, 0xFFFFFF);
 		}
 	}
 }
