@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 20:31:55 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/02 16:24:01 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/04 14:00:30 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ double	ft_atof(char *str)
 		res = res + (double)mass[i] * (pow(10, flag[0] - i - 1) * 10);
 	if (flag[1])
 		res = res * -1;
+	if (res < -1.7976931348623157e308 || res > 1.7976931348623157e308)
+		exit(write(2, "bad atof arg\n", 13));
 	return (free(mass), res);
 }
 
