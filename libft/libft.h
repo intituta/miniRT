@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:30:40 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/02 19:16:49 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/04 19:53:23 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,25 @@
 
 typedef struct s_list
 {
-	void			*content;
 	char			*id;
-	double			diametr;
+	void			*content;
+	float			vp_width;
+	float			vp_height;
+	float			vp_x_pixel;
+	float			vp_y_pixel;
 	double			range;
 	double			height;
+	double			diametr;
 	double			x;
 	double			y;
 	double			z;
 	double			n_vec1;
 	double			n_vec2;
 	double			n_vec3;
-	int				fov;
 	int				r;
 	int				g;
 	int				b;
+	int				fov;
 	struct s_list	*next;
 }	t_list;
 

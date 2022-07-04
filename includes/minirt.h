@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:33:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/02 20:19:36 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:31:57 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,18 @@ typedef struct s_struct
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img;
-	float	x;
-	float	y;
-	int		bpp;
-	int		width;
-	int		height;
-	int		endian;
+	int		w_width;
+	int		w_height;
 	int		lst_size;
-	int		local_color;
-	int		line_lenght;
 	int		cam_lst_size;
-	char	*addr;
 	char	**xyz;
 	char	**strs;
 	t_list	*list;
 	t_list	*cams;
 	t_list	*lights;
 	t_list	*figures;
+	t_list	*ray;
+	t_list	*view_plane;
 	t_list	*ambient_light;
 }	t_struct;
 
