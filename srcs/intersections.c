@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:40 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:03:55 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:07:51 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ double	inter_plane(t_v3 origin, t_v3 ray, t_objs *obj)
 	return (x);
 }
 
-double	compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int procedure)
+double	compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int proc)
 {
 	double	dd;
 	t_v3	aux3;
 
-	if (procedure == 1)
+	if (proc == 1)
 		aux3 = add_v(obj->coord, scale_v(obj->or, obj->params.y));
 	else
 		aux3 = v_dup(obj->coord);

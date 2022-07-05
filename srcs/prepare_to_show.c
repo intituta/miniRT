@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:56:28 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:13:28 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*find_pixel(t_v3 origin, t_v3 ray, t_scene *sc)
 	t_objs	*iter;
 	t_objs	*intersected;
 
-	closest = INF;
+	closest = 2147483647;
 	iter = sc->obj_list;
 	intersected = NULL;
 	while (iter)

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:21 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:49:31 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:12:14 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ char	*ft_read(int fd)
 	char	*buf;
 	char	*result;
 
-	buf = malloc(BUFFER_SIZE + 1);
+	buf = malloc(128 + 1);
 	if (!buf)
 		return (NULL);
-	result = malloc(BUFFER_SIZE + 1);
+	result = malloc(128 + 1);
 	if (!result)
 		return (NULL);
-	buf[BUFFER_SIZE] = '\0';
+	buf[128] = '\0';
 	result[0] = '\0';
-	i_read = read(fd, buf, BUFFER_SIZE);
+	i_read = read(fd, buf, 128);
 	while (i_read)
 	{
 		result = concat_here(result, buf, i_read);
-		i_read = read(fd, buf, BUFFER_SIZE);
+		i_read = read(fd, buf, 128);
 	}
 	free(buf);
 	if (i_read < 0)
