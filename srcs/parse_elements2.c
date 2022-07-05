@@ -6,13 +6,13 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:17 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:43:04 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:48:30 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-int	process_ambiance(t_scene *sc, char *begin)
+int	parse_ambiance(t_scene *sc, char *begin)
 {
 	char	*it;
 
@@ -33,7 +33,7 @@ int	process_ambiance(t_scene *sc, char *begin)
 		return (-44);
 }
 
-int	process_camera(t_scene *sc, char *begin)
+int	parse_camera(t_scene *sc, char *begin)
 {
 	char	*it;
 	t_objs	*this_obj;
@@ -58,7 +58,7 @@ int	process_camera(t_scene *sc, char *begin)
 	return (1);
 }
 
-int	process_light(t_scene *sc, char *begin)
+int	parse_light(t_scene *sc, char *begin)
 {
 	char	*it;
 	t_objs	*this_obj;

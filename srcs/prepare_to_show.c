@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prepare_to_show.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:07 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:56:28 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static void	fill_pixel(t_mlx_show *the_show, int x, int y, int *color)
 
 int	*find_pixel(t_v3 origin, t_v3 ray, t_scene *sc)
 {
-	t_objs	*intersected;
-	t_objs	*iter;
 	double	dist;
 	double	closest;
+	t_objs	*iter;
+	t_objs	*intersected;
 
-	iter = sc->obj_list;
 	closest = INF;
+	iter = sc->obj_list;
 	intersected = NULL;
 	while (iter)
 	{
@@ -78,7 +78,7 @@ int	fill_the_image(t_scene *sc, t_mlx_show *the_show)
 	return (1);
 }
 
-int	put_it_on(t_scene *sc, t_mlx_show *the_show)
+int	put_image(t_scene *sc, t_mlx_show *the_show)
 {
 	if (!sc)
 		return (-1060);

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:31 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:42:41 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:05:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	ft_putstr_fd(char *s, int fd)
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	size_t			i;
 	unsigned char	*p1;
 	unsigned char	*p2;
-	size_t			i;
 
 	if ((!s1 && !s2) || n == 0)
 		return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersect_cyl.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:35 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:38 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:04:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ double	check_caps(t_v3 origin, t_v3 ray, t_objs *obj, t_v3 ccc)
 
 double	best_with_caps(t_v3 origin, t_v3 ray, t_objs *obj, double it_b)
 {
-	double	dd[2];
 	double	caps;
+	double	dd[2];
 	t_v3	ccc;
 
 	dd[0] = check_caps(origin, ray, obj, obj->coord);
@@ -98,8 +98,8 @@ double	best_with_caps(t_v3 origin, t_v3 ray, t_objs *obj, double it_b)
 
 double	inter_cylinder(t_v3 origin, t_v3 ray, t_objs *obj)
 {
-	double	dist[2];
 	double	x[2];
+	double	dist[2];
 	double	body_it;
 
 	cy_calculs(origin, ray, obj, x);
@@ -114,9 +114,3 @@ double	inter_cylinder(t_v3 origin, t_v3 ray, t_objs *obj)
 					add_v(obj->coord, scale_v(obj->or, dist[1]))));
 	return (body_it);
 }
-
-/*
-**
-** return (best_with_caps(origin, ray, obj, body_it));
-**
-*/

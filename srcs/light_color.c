@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:46 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:48 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:04:35 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ int	*resolve_color(double check, t_v3 to_light, t_scene *sc, t_objs *itsd)
 
 int	*get_color(t_v3 origin, t_v3 ray, t_objs *itsd, t_scene *sc)
 {
-	t_objs	*iter;
-	t_v3	to_light;
 	double	check;
+	t_objs	*iter;
 	t_v3	point;
+	t_v3	to_light;
 
 	if (!itsd)
 		return (ft_calloc(4, sizeof(int)));

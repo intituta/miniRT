@@ -6,13 +6,13 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:41:22 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:56:36 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minirt.h"
-#include <unistd.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include "../includes/minirt.h"
 
 t_scene	*init_struct(void)
 {
@@ -34,7 +34,7 @@ t_scene	*init_struct(void)
 	return (new_sc);
 }
 
-t_mlx_show	*rideau(t_scene *sc)
+t_mlx_show	*init_mlx(t_scene *sc)
 {
 	t_mlx_show		*the_show;
 
@@ -78,8 +78,8 @@ int	main(int argc, char **argv)
 	parsing(file_str, sc_now);
 	free(file_str);
 	check_all(sc_now);
-	the_show = rideau(sc_now);
-	put_it_on(sc_now, the_show);
+	the_show = init_mlx(sc_now);
+	put_image(sc_now, the_show);
 	if (argc == 2)
 		start(the_show);
 	exit(0);

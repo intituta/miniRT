@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersections.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:40 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:43 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:03:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ double	inter_sphere(t_v3 origin, t_v3 ray, t_objs *obj)
 {
 	double	closer;
 	double	inter_p[2];
-	t_v3	aux;
 	t_v3	k;
+	t_v3	aux;
 
 	aux = sub(origin, obj->coord);
 	k.x = dot_p(ray, ray);
@@ -58,8 +58,8 @@ double	inter_plane(t_v3 origin, t_v3 ray, t_objs *obj)
 
 double	compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int procedure)
 {
-	t_v3	aux3;
 	double	dd;
+	t_v3	aux3;
 
 	if (procedure == 1)
 		aux3 = add_v(obj->coord, scale_v(obj->or, obj->params.y));

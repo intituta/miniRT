@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   process_elements1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:09 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:12 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:49:12 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-char	*process_cylinder(char *begin, t_objs *ob)
+char	*parse_cylinder(char *begin, t_objs *ob)
 {
 	char	*it;
 
@@ -30,7 +30,7 @@ char	*process_cylinder(char *begin, t_objs *ob)
 	return (it);
 }
 
-char	*process_plane(char *begin, t_objs *ob)
+char	*parse_plane(char *begin, t_objs *ob)
 {
 	char	*it;
 
@@ -45,7 +45,7 @@ char	*process_plane(char *begin, t_objs *ob)
 	return (it);
 }
 
-char	*process_sphere(char *begin, t_objs *ob)
+char	*parse_sphere(char *begin, t_objs *ob)
 {
 	char	*it;
 
@@ -59,7 +59,7 @@ char	*process_sphere(char *begin, t_objs *ob)
 	return (it);
 }
 
-int	process_object(t_scene *sc, char *begin)
+int	parse_object(t_scene *sc, char *begin)
 {
 	char	*it;
 	t_objs	*ob;
@@ -74,11 +74,11 @@ int	process_object(t_scene *sc, char *begin)
 	if (!it)
 		return (-41);
 	if (!ft_strncmp(begin, "cy", 2))
-		it = process_cylinder(it, ob);
+		it = parse_cylinder(it, ob);
 	else if (!ft_strncmp(begin, "pl", 2))
-		it = process_plane(it, ob);
+		it = parse_plane(it, ob);
 	else if (!ft_strncmp(begin, "sp", 2))
-		it = process_sphere(it, ob);
+		it = parse_sphere(it, ob);
 	if (!it)
 		return (-41);
 	return (1);
