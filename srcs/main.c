@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_calls.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:56 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:09:51 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_mlx_show	*rideau(t_scene *sc)
 	return (the_show);
 }
 
-void	start_the_dance(t_mlx_show *the_show)
+void	start(t_mlx_show *the_show)
 {
 	mlx_clear_window(the_show->mlx_ptr, the_show->win_ptr);
 	mlx_put_image_to_window(the_show->mlx_ptr, the_show->win_ptr,
@@ -73,18 +73,14 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit_program("Error\nCouln't read or find file\n");
-	ft_putstr_fd("\n\nParsing... ", 2);
 	file_str = read_everything(fd);
 	sc_now = make_a_scene();
-	ft_putstr_fd("everything read.\nProcessing now...", 2);
 	process_everything(file_str, sc_now);
 	free(file_str);
 	check_all(sc_now);
-	ft_putstr_fd(" all processed, check OK\nDrawing for you...", 2);
 	the_show = rideau(sc_now);
 	put_it_on(sc_now, the_show);
-	ft_putstr_fd("\nCurtain's up! \n\n", 2);
 	if (argc == 2)
-		start_the_dance(the_show);
+		start(the_show);
 	exit(0);
 }

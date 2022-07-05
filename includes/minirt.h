@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:38:37 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:54:27 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 # define MINIRT_H
 # define BUFFER_SIZE 128
-# define WIDTH 1280
-# define HEIGHT 1080
+# define WIDTH 800
+# define HEIGHT 600
 # define ESC_KEY 65307
 # define INF 2147483647
 # define THANKS "Thank you, see you soon!\n"
@@ -30,7 +30,7 @@ typedef struct s_v3
 	double	x;
 	double	y;
 	double	z;
-}				t_v3;
+}	t_v3;
 
 typedef struct s_show
 {
@@ -41,7 +41,7 @@ typedef struct s_show
 	int				bpp;
 	int				size_line;
 	int				endian;
-}					t_mlx_show;
+}	t_mlx_show;
 
 typedef struct s_objs
 {
@@ -52,7 +52,7 @@ typedef struct s_objs
 	t_v3			normal;
 	int				*color;
 	struct s_objs	*next;
-}					t_objs;
+}	t_objs;
 
 typedef struct scene
 {
@@ -64,9 +64,8 @@ typedef struct scene
 	t_objs			*obj_list;
 	t_objs			*camera;
 	t_objs			*f_light;
-}					t_scene;
+}	t_scene;
 
-/*			PARSING FUNCTIONS			*/
 char			*read_everything(int fd);
 int				process_everything(char *all, t_scene	*this_scene);
 int				process_ambiance(t_scene *sc, char *begin);
@@ -76,12 +75,10 @@ int				process_object(t_scene *sc, char *begin);
 char			*get_some_d(t_v3 *things, int how_many, char *where_from);
 char			*get_some_i(int *things, int how_many, char *where_from);
 
-/*			INTERNAL STRUCT FUNCTIONS	*/
 t_objs			*push_new_object(t_objs **begin_list);
 t_v3			v_dup(t_v3 this);
 void			initialize_v3(t_v3 *this);
 
-/*		  	ERROR AND DEBUGGING			*/
 int				object_error(t_objs *this);
 int				check_all(t_scene *sc);
 int				exit_program(char *str);
@@ -89,7 +86,6 @@ int				operate_key_press(int key);
 int				color_error(int *col);
 int				file_error(int argc, char **argv);
 
-/*			STR FUNCTIONS				*/
 char			**ft_split(char const *s, char c);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strchr(const char *s, int c);
@@ -102,7 +98,6 @@ int				ft_strcmp(const char *s1, const char *s2);
 int				ft_isspace(char c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
-/*			MATH FUNCTIONS				*/
 t_v3			cross_product(t_v3 one, t_v3 other);
 double			dot_p(t_v3 one, t_v3 other);
 t_v3			scale_v(t_v3 v, double n);
@@ -119,7 +114,6 @@ double			compute_plane(t_v3 origin, t_v3 ray, t_objs *obj,
 					int procedure);
 double			vcos(t_v3 a, t_v3 b);
 
-/*			IMAGE FUNCTIONS				*/
 int				put_it_on(t_scene *scene_now, t_mlx_show *the_show);
 int				*get_color(t_v3 origin, t_v3 ray, t_objs *inter, t_scene *sc);
 #endif
