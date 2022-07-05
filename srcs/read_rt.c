@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   read_rt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:21 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:24 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:41:06 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-char	*read_everything(int fd)
+char	*ft_read(int fd)
 {
-	char	*resultat;
-	char	*buffer;
 	int		i_read;
+	char	*buf;
+	char	*result;
 
-	buffer = malloc(BUFFER_SIZE + 1);
-	if (!buffer)
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!buf)
 		return (NULL);
-	resultat = malloc(BUFFER_SIZE + 1);
-	if (!resultat)
+	result = malloc(BUFFER_SIZE + 1);
+	if (!result)
 		return (NULL);
-	buffer[BUFFER_SIZE] = '\0';
-	resultat[0] = '\0';
-	i_read = read(fd, buffer, BUFFER_SIZE);
+	buf[BUFFER_SIZE] = '\0';
+	result[0] = '\0';
+	i_read = read(fd, buf, BUFFER_SIZE);
 	while (i_read)
 	{
-		resultat = concat_here(resultat, buffer, i_read);
-		i_read = read(fd, buffer, BUFFER_SIZE);
+		result = concat_here(result, buf, i_read);
+		i_read = read(fd, buf, BUFFER_SIZE);
 	}
-	free(buffer);
+	free(buf);
 	if (i_read < 0)
 		return (NULL);
-	return (resultat);
+	return (result);
 }
 
 int	process_element(t_scene *sc, char *begin)
@@ -56,20 +56,19 @@ int	process_element(t_scene *sc, char *begin)
 	return (process_object(sc, begin));
 }
 
-int	process_everything(char *all, t_scene *this_scene)
+int	parsing(char *all, t_scene *this_scene)
 {
 	int		i;
 	char	**all_elements;
 
+	i = -1;
 	all_elements = ft_split(all, '\n');
-	i = 0;
-	while (all_elements[i])
+	while (all_elements[++i])
 	{
 		if (all_elements[i][0])
 			if (process_element(this_scene, all_elements[i]) < 0)
 				exit_program("Error\nIncorrect formatting\n");
 		free(all_elements[i]);
-		i++;
 	}
 	free(all_elements[i]);
 	free(all_elements);

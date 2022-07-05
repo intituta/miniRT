@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:29 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:33:00 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ char	*ft_strchr(const char *s, int c)
 
 char	*concat_here(char *str1, char *str2, int read)
 {
+	int		i;
 	int		size1;
 	int		size2;
-	int		i;
 	char	*together;
 
 	size1 = ft_strlen(str1);

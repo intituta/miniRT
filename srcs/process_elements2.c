@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_elements2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:17 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:19 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:43:04 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	process_ambiance(t_scene *sc, char *begin)
 	char	*it;
 
 	it = begin + 1;
-	sc->a_lum = ft_strtod(it);
+	sc->a_lum = ft_atof(it);
 	it = advance_through(it);
-	sc->a_color[0] = (int)ft_strtod(it);
+	sc->a_color[0] = (int)ft_atof(it);
 	it = advance_through(it);
-	sc->a_color[1] = (int)ft_strtod(it);
+	sc->a_color[1] = (int)ft_atof(it);
 	it = advance_through(it);
-	sc->a_color[2] = (int)ft_strtod(it);
+	sc->a_color[2] = (int)ft_atof(it);
 	it = advance_through(it);
 	while (*it == ' ')
 		it++;

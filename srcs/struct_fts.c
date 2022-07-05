@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_fts.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:38 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:42 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:44:53 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_some_i(int *things, int how_many, char *where_from)
 	i = 0;
 	while (i < how_many)
 	{
-		things[i] = (int) ft_strtod(where_from);
+		things[i] = (int) ft_atof(where_from);
 		where_from = advance_through(where_from);
 		i++;
 	}
@@ -65,17 +65,17 @@ char	*get_some_d(t_v3 *things, int how_many, char *where_from)
 {
 	if (how_many)
 	{
-		things->x = ft_strtod(where_from);
+		things->x = ft_atof(where_from);
 		where_from = advance_through(where_from);
 	}
 	if (how_many > 1)
 	{
-		things->y = ft_strtod(where_from);
+		things->y = ft_atof(where_from);
 		where_from = advance_through(where_from);
 	}
 	if (how_many > 2)
 	{
-		things->z = ft_strtod(where_from);
+		things->z = ft_atof(where_from);
 		where_from = advance_through(where_from);
 	}
 	if (ft_isspace(*where_from) || *where_from == '\n' || *where_from == '\0')

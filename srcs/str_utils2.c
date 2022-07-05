@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:31 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:40:36 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:42:41 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	ft_isspace(char c)
 	return (0);
 }
 
-double	ft_strtod(const char *str)
+double	ft_atof(const char *str)
 {
-	double	number;
-	int		sign;
 	int		i;
 	int		aux;
+	int		sign;
+	double	number;
 
 	i = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))

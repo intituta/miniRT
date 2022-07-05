@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 16:19:18 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:41:22 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-t_scene	*make_a_scene(void)
+t_scene	*init_struct(void)
 {
 	t_scene	*new_sc;
 
 	new_sc = malloc(sizeof(t_scene));
 	if (!new_sc)
 		return (NULL);
-	new_sc->height = HEIGHT;
-	new_sc->width = WIDTH;
-	new_sc->a_lum = -1;
-	new_sc->a_color = ft_calloc(3, sizeof(int));
-	new_sc->obj_list = NULL;
-	new_sc->f_light = NULL;
-	new_sc->camera = NULL;
 	new_sc->up_v.x = 0;
-	new_sc->up_v.y = -1;
 	new_sc->up_v.z = 0;
+	new_sc->a_lum = -1;
+	new_sc->up_v.y = -1;
+	new_sc->camera = NULL;
+	new_sc->f_light = NULL;
+	new_sc->obj_list = NULL;
+	new_sc->width = WIDTH;
+	new_sc->height = HEIGHT;
+	new_sc->a_color = ft_calloc(3, sizeof(int));
 	return (new_sc);
 }
 
@@ -73,9 +73,9 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit_program("Error\nCouln't read or find file\n");
-	file_str = read_everything(fd);
-	sc_now = make_a_scene();
-	process_everything(file_str, sc_now);
+	file_str = ft_read(fd);
+	sc_now = init_struct();
+	parsing(file_str, sc_now);
 	free(file_str);
 	check_all(sc_now);
 	the_show = rideau(sc_now);

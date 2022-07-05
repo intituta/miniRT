@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 16:14:48 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:44:17 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MINIRT_H
 # define WIDTH 800
 # define HEIGHT 600
-# define ESC_KEY 65307
 # define INF 2147483647
 # define BUFFER_SIZE 128
 # include <math.h>
@@ -32,46 +31,46 @@ typedef struct s_v3
 
 typedef struct s_show
 {
+	char			*data;
+	int				bpp;
+	int				endian;
+	int				size_line;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*mlx_img;
-	char			*data;
-	int				bpp;
-	int				size_line;
-	int				endian;
 }	t_mlx_show;
 
 typedef struct s_objs
 {
 	char			type;
+	int				*color;
 	t_v3			coord;
 	t_v3			or;
 	t_v3			params;
 	t_v3			normal;
-	int				*color;
 	struct s_objs	*next;
 }	t_objs;
 
 typedef struct scene
 {
-	int				height;
-	t_v3			up_v;
 	int				width;
-	double			a_lum;
+	int				height;
 	int				*a_color;
-	t_objs			*obj_list;
+	double			a_lum;
+	t_v3			up_v;
 	t_objs			*camera;
 	t_objs			*f_light;
+	t_objs			*obj_list;
 }	t_scene;
 
-char			*read_everything(int fd);
-int				process_everything(char *all, t_scene	*this_scene);
-int				process_ambiance(t_scene *sc, char *begin);
-int				process_camera(t_scene *sc, char *begin);
 int				process_light(t_scene *sc, char *begin);
+int				process_camera(t_scene *sc, char *begin);
 int				process_object(t_scene *sc, char *begin);
-char			*get_some_d(t_v3 *things, int how_many, char *where_from);
+int				parsing(char *all, t_scene	*this_scene);
+int				process_ambiance(t_scene *sc, char *begin);
+char			*ft_read(int fd);
 char			*get_some_i(int *things, int how_many, char *where_from);
+char			*get_some_d(t_v3 *things, int how_many, char *where_from);
 
 t_objs			*push_new_object(t_objs **begin_list);
 t_v3			v_dup(t_v3 this);
@@ -88,7 +87,7 @@ char			**ft_split(char const *s, char c);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strchr(const char *s, int c);
 char			*advance_through(char *this);
-double			ft_strtod(const char *str);
+double			ft_atof(const char *str);
 void			*ft_calloc(size_t nmemb, size_t size);
 char			*concat_here(char *str1, char *str2, int read);
 void			ft_putstr_fd(char *s, int fd);

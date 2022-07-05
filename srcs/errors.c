@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 16:17:47 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:46:06 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	operate_key_press(int key)
 {
-	if (key == ESC_KEY)
-		exit_program("End\n");
-	return (0);
+	if (key == 53)
+		exit(0);
 }
 
 int	exit_program(char *str)
