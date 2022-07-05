@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 16:10:29 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:17:47 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	exit_program(char *str)
 {
 	ft_putstr_fd(str, 2);
 	exit(0);
-	return (0);
 }
 
 int	color_error(int *col)

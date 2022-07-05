@@ -6,23 +6,21 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 15:54:27 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:14:48 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
-
 # define MINIRT_H
-# define BUFFER_SIZE 128
 # define WIDTH 800
 # define HEIGHT 600
 # define ESC_KEY 65307
 # define INF 2147483647
-# define THANKS "Thank you, see you soon!\n"
+# define BUFFER_SIZE 128
+# include <math.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <math.h>
 # include "../minilibx/mlx.h"
 
 typedef struct s_v3
