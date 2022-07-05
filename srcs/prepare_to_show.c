@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:49:14 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:52:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	fill_the_image(t_scene *sc, t_mlx_show *the_show)
 {
 	int		x_i;
 	int		y_i;
-	t_v3	ray_i;
 	double	fov;
+	t_v3	ray_i;
 
 	x_i = -1;
 	fov = sc->camera->params.x;
