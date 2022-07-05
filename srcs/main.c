@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:49:03 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 20:01:07 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,10 @@ int	main(int argc, char **argv)
 		exit_program("Error\nInvalid arguments\n");
 	sc_now = init_struct();
 	parsing(file_str, sc_now);
-	free(file_str);
 	check_all(sc_now);
 	the_show = init_mlx(sc_now);
 	put_image(sc_now, the_show);
 	if (argc == 2)
 		start(the_show);
-	exit(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:21 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:33:33 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 20:00:15 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,5 @@ int	parsing(char *all, t_scene *this_scene)
 				exit_program("Error\nIncorrect formatting\n");
 		free(all_elements[i]);
 	}
-	free(all_elements[i]);
-	free(all_elements);
-	return (0);
+	return (free(all_elements[i]), free(all_elements), free(all), 0);
 }
