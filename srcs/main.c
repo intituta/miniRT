@@ -6,13 +6,23 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:56:36 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:49:03 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include "../includes/minirt.h"
+
+void	check_parse(t_scene *sc)
+{
+	if (!sc->obj_list)
+		exit_program("Error\nNo figures\n");
+	if (!sc->camera)
+		exit_program("Error\nNo camera\n");
+	if (!sc->f_light)
+		exit_program("Error\nNo light\n");
+}
 
 t_scene	*init_struct(void)
 {
@@ -69,11 +79,13 @@ int	main(int argc, char **argv)
 	t_mlx_show	*the_show;
 
 	if (argc < 2 || argc > 3 || file_error(argc, argv))
-		exit_program("Error\nWrong Arguments\n-- Usage: ./miniRT *.rt\n");
+		exit_program("Error\nWrong Arguments\nUsage: ./miniRT *.rt\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit_program("Error\nCouln't read or find file\n");
 	file_str = ft_read(fd);
+	if (!ft_strlen(file_str))
+		exit_program("Error\nInvalid arguments\n");
 	sc_now = init_struct();
 	parsing(file_str, sc_now);
 	free(file_str);

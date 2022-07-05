@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:14:18 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:50:07 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 int				put_image(t_scene *scene_now, t_mlx_show *the_show);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				*get_color(t_v3 origin, t_v3 ray, t_objs *inter, t_scene *sc);
-
+size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 double			vcos(t_v3 a, t_v3 b);
@@ -99,6 +99,7 @@ char			*concat_here(char *str1, char *str2, int read);
 char			*get_some_i(int *things, int how_many, char *where_from);
 char			*get_some_d(t_v3 *things, int how_many, char *where_from);
 
+void			check_parse(t_scene *sc);
 void			initialize_v3(t_v3 *this);
 void			ft_putstr_fd(char *s, int fd);
 void			*ft_calloc(size_t nmemb, size_t size);

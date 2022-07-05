@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 18:13:28 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:49:14 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	check_all(t_scene *sc)
 	t_objs		*it;
 	t_v3		aux;
 
+	check_parse(sc);
 	if (color_error(sc->a_color) || color_error(sc->f_light->color))
 		exit_program("Error\nWrong color formatting\n");
 	if (sc->a_lum < 0 || sc->a_lum > 1)
