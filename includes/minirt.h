@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:52:52 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:13:55 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int				file_error(int argc, char **argv);
 int				parse_light(t_scene *sc, char *begin);
 int				parse_camera(t_scene *sc, char *begin);
 int				parse_object(t_scene *sc, char *begin);
-int				operate_key_press(int key, t_scene *sc);
+int				key_hook(int key, t_scene *sc);
 int				parsing(char *all, t_scene	*this_scene);
 int				parse_ambiance(t_scene *sc, char *begin);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);

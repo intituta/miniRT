@@ -6,30 +6,32 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 14:21:37 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:13:40 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-int	operate_key_press(int key, t_scene *sc)
+int	key_hook(int key, t_scene *sc)
 {	
 	if (key == 53)
 		exit(0);
-	else if (key == 12)
-		sc->camera->coord.y = sc->camera->coord.y - 0.25;
+	if (key == 12)
+		sc->camera->coord.y -= 0.5;
 	else if (key == 14)
-		sc->camera->coord.y = sc->camera->coord.y + 0.25;
+		sc->camera->coord.y += 0.5;
 	else if (key == 13)
-		sc->camera->coord.z = sc->camera->coord.z - 0.5;
+		sc->camera->coord.z -= 0.5;
 	else if (key == 1)
-		sc->camera->coord.z = sc->camera->coord.z + 0.5;
+		sc->camera->coord.z += 0.5;
 	else if (key == 0)
-		sc->camera->coord.x = sc->camera->coord.x - 0.25;
+		sc->camera->coord.x -= 0.5;
 	else if (key == 2)
-		sc->camera->coord.x = sc->camera->coord.x + 0.25;
-	if (put_image(sc))
-		exit_program("Error\nInvalid put image\n");
+		sc->camera->coord.x += 0.5;
+	if (key == 53 || key == 12 || key == 14
+		|| key == 13 || key == 1 || key == 0 || key == 2)
+		if (put_image(sc))
+			exit_program("Error\nInvalid put image\n");
 }
 
 int	exit_program(char *str)
