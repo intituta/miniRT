@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:33:00 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:05:52 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@ size_t	ft_strlen(const char *s)
 	while (s[count])
 		count++;
 	return (count);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	*ret;
-
-	ret = (char *)s;
-	while (*ret != c)
-	{
-		if (*ret == '\0')
-			return (0);
-		ret++;
-	}
-	return (ret);
 }
 
 char	*concat_here(char *str1, char *str2, int read)

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:48:51 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:10:28 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,22 @@ int				parse_camera(t_scene *sc, char *begin);
 int				parse_object(t_scene *sc, char *begin);
 int				parsing(char *all, t_scene	*this_scene);
 int				parse_ambiance(t_scene *sc, char *begin);
-int				ft_strcmp(const char *s1, const char *s2);
 int				put_image(t_scene *scene_now, t_mlx_show *the_show);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				*get_color(t_v3 origin, t_v3 ray, t_objs *inter, t_scene *sc);
 size_t			ft_strlen(const char *s);
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 double			vcos(t_v3 a, t_v3 b);
 double			ft_atof(const char *str);
 double			dot_p(t_v3 one, t_v3 other);
 double			distance3(t_v3 one, t_v3 other);
 double			inter_plane(t_v3 origin, t_v3 ray, t_objs *object);
-double			**compute_rotation(t_v3 orig, t_v3 dir, t_v3 up_v);
 double			inter_sphere(t_v3 origin, t_v3 ray, t_objs *object);
 double			inter_cylinder(t_v3 origin, t_v3 ray, t_objs *object);
 double			compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int proc);
 
 char			*ft_read(int fd);
 char			*advance_through(char *this);
-char			*ft_strchr(const char *s, int c);
 char			**ft_split(char const *s, char c);
 char			*concat_here(char *str1, char *str2, int read);
 char			*get_some_i(int *things, int how_many, char *where_from);
