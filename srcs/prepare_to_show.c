@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 19:52:55 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:43:41 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ int	put_image(t_scene *sc, t_mlx_show *the_show)
 		return (-1061);
 	if (!fill_the_image(sc, the_show))
 		return (-1062);
+	mlx_clear_window(the_show->mlx_ptr, the_show->win_ptr);
 	mlx_put_image_to_window(the_show->mlx_ptr, the_show->win_ptr,
 		the_show->mlx_img, 0, 0);
+	mlx_loop(the_show->mlx_ptr);
 	return (0);
 }
 
