@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:21 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 20:00:15 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:53:00 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	parse_element(t_scene *sc, char *begin)
 	if (begin[0] == 'A')
 	{
 		if (sc->a_lum >= 0)
-			return ((sc->a_lum = -444));
+			return ((sc->a_lum = -1));
 		else
 			return (parse_ambiance(sc, begin));
 	}

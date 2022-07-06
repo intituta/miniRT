@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_elements2.c                                :+:      :+:    :+:   */
+/*   parse_elements2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:17 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:48:30 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:53:29 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	parse_ambiance(t_scene *sc, char *begin)
 	while (*it == ' ')
 		it++;
 	if (!*it)
-		return (11);
+		return (1);
 	else
-		return (-44);
+		return (-1);
 }
 
 int	parse_camera(t_scene *sc, char *begin)
@@ -40,19 +40,19 @@ int	parse_camera(t_scene *sc, char *begin)
 
 	sc->camera = push_new_object(&(sc->camera));
 	if (!sc->camera)
-		return (-11);
+		return (-1);
 	this_obj = sc->camera;
 	this_obj->type = 'C';
 	it = get_some_d(&this_obj->coord, 3, begin + 1);
 	if (!it)
-		return (-41);
+		return (-1);
 	it = get_some_d(&this_obj->or, 3, it);
 	if (!it)
-		return (-41);
+		return (-1);
 	it = get_some_d(&this_obj->params, 1, it);
 	this_obj->params.x = this_obj->params.x * M_PI / 180 / 2;
 	if (!it)
-		return (-41);
+		return (-1);
 	if (this_obj->or.x == 0 && this_obj->or.y == 0 && this_obj->or.z == 0)
 		this_obj->or.z = 1;
 	return (1);
@@ -70,10 +70,10 @@ int	parse_light(t_scene *sc, char *begin)
 	this_obj->type = 'L';
 	it = get_some_d(&this_obj->coord, 3, begin + 1);
 	if (!it)
-		return (-41);
+		return (-1);
 	it = get_some_d(&this_obj->params, 1, it);
 	if (!it)
-		return (-41);
+		return (-1);
 	it = get_some_i(this_obj->color, 3, it);
 	if (!it)
 		return (-41);
@@ -81,6 +81,6 @@ int	parse_light(t_scene *sc, char *begin)
 		|| this_obj->or.y > 255 || this_obj->or.y < 0
 		|| this_obj->or.z > 255 || this_obj->or.z < 0
 		|| this_obj->params.x < 0 || this_obj->params.x > 1)
-		return (-42);
+		return (-1);
 	return (1);
 }

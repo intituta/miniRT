@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_elements1.c                                :+:      :+:    :+:   */
+/*   parse_elements1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:09 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:49:12 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:53:40 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ int	parse_object(t_scene *sc, char *begin)
 		exit_program("ERROR: unknown element\n");
 	ob = push_new_object(&(sc->obj_list));
 	if (!ob)
-		return (-11);
+		return (-1);
 	it = get_some_d(&ob->coord, 3, begin + 2);
 	if (!it)
-		return (-41);
+		return (-1);
 	if (!ft_strncmp(begin, "cy", 2))
 		it = parse_cylinder(it, ob);
 	else if (!ft_strncmp(begin, "pl", 2))
@@ -80,6 +80,6 @@ int	parse_object(t_scene *sc, char *begin)
 	else if (!ft_strncmp(begin, "sp", 2))
 		it = parse_sphere(it, ob);
 	if (!it)
-		return (-41);
+		return (-1);
 	return (1);
 }

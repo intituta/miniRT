@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:48:37 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:50:41 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int	fill_the_image(t_scene *sc, t_mlx_show *the_show)
 int	put_image(t_scene *sc, t_mlx_show *the_show)
 {
 	if (!sc)
-		return (-1060);
+		return (1);
 	if (!the_show)
-		return (-1061);
+		return (1);
 	if (!fill_the_image(sc, the_show))
-		return (-1062);
+		return (1);
 	mlx_clear_window(the_show->mlx_ptr, the_show->win_ptr);
 	mlx_put_image_to_window(the_show->mlx_ptr, the_show->win_ptr,
 		the_show->mlx_img, 0, 0);
