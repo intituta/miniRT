@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:54:46 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:23:05 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 	if (put_image(sc))
 		exit_program("Error\nInvalid put image\n");
 	mlx_key_hook(sc->the_show->win_ptr, operate_key_press, sc);
-	mlx_hook(sc->the_show->win_ptr, 17, (1L << 17), exit_program, NULL);
+	mlx_hook(sc->the_show->win_ptr, 17, 1L, exit_program, NULL);
 	mlx_loop(sc->the_show->mlx_ptr);
 	return (0);
 }

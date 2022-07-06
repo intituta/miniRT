@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 13:05:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:21:37 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	operate_key_press(int key, t_scene *sc)
 
 int	exit_program(char *str)
 {
-	ft_putstr_fd(str, 2);
+	if (str)
+		ft_putstr_fd(str, 2);
 	exit(0);
 }
 
