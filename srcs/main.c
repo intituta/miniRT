@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:33:39 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:54:46 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ t_mlx_show	*init_mlx(t_scene *sc)
 			&the_show->bpp, &the_show->size_line, &the_show->endian);
 	the_show->win_ptr = mlx_new_window(the_show->mlx_ptr, sc->width,
 			sc->height, "miniRT");
-	mlx_key_hook(the_show->win_ptr, operate_key_press, sc);
-	mlx_hook(the_show->win_ptr, 17, (1L << 17), exit_program, NULL);
 	the_show->bpp = 600;
 	return (the_show);
 }
@@ -67,8 +65,7 @@ int	main(int argc, char **argv)
 {
 	int			fd;
 	char		*file_str;
-	t_scene		*sc_now;
-	t_mlx_show	*the_show;
+	t_scene		*sc;
 
 	if (argc < 2 || argc > 3 || file_error(argc, argv))
 		exit_program("Error\nWrong Arguments\nUsage: ./miniRT *.rt\n");
@@ -78,11 +75,14 @@ int	main(int argc, char **argv)
 	file_str = ft_read(fd);
 	if (!ft_strlen(file_str))
 		exit_program("Error\nInvalid arguments\n");
-	sc_now = init_struct();
-	parsing(file_str, sc_now);
-	check_all(sc_now);
-	the_show = init_mlx(sc_now);
-	if (put_image(sc_now, the_show))
+	sc = init_struct();
+	parsing(file_str, sc);
+	check_all(sc);
+	sc->the_show = init_mlx(sc);
+	if (put_image(sc))
 		exit_program("Error\nInvalid put image\n");
+	mlx_key_hook(sc->the_show->win_ptr, operate_key_press, sc);
+	mlx_hook(sc->the_show->win_ptr, 17, (1L << 17), exit_program, NULL);
+	mlx_loop(sc->the_show->mlx_ptr);
 	return (0);
 }

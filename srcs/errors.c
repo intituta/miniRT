@@ -6,17 +6,30 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:39:30 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:59:49 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
 int	operate_key_press(int key, t_scene *sc)
-{
+{	
 	if (key == 53)
 		exit(0);
-	printf("key = %d\n", key);
+	else if (key == 12)
+		sc->camera->coord.y = sc->camera->coord.y - 1;
+	else if (key == 14)
+		sc->camera->coord.y = sc->camera->coord.y + 1;
+	else if (key == 13)
+		sc->camera->coord.z = sc->camera->coord.z - 1;
+	else if (key == 1)
+		sc->camera->coord.z = sc->camera->coord.z + 1;
+	else if (key == 0)
+		sc->camera->coord.x = sc->camera->coord.x - 1;
+	else if (key == 2)
+		sc->camera->coord.x = sc->camera->coord.x + 1;
+	if (put_image(sc))
+		exit_program("Error\nInvalid put image\n");
 }
 
 int	exit_program(char *str)

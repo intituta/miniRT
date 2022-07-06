@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:34:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:52:52 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct scene
 	t_objs			*camera;
 	t_objs			*f_light;
 	t_objs			*obj_list;
+	t_mlx_show		*the_show;
 }	t_scene;
 
 void			check_all(t_scene *sc);
@@ -95,6 +96,7 @@ t_objs			*push_new_object(t_objs **begin_list);
 
 int				ft_isspace(char c);
 int				color_error(int *col);
+int				put_image(t_scene *sc);
 int				exit_program(char *str);
 int				object_error(t_objs *this);
 int				file_error(int argc, char **argv);
@@ -104,7 +106,6 @@ int				parse_object(t_scene *sc, char *begin);
 int				operate_key_press(int key, t_scene *sc);
 int				parsing(char *all, t_scene	*this_scene);
 int				parse_ambiance(t_scene *sc, char *begin);
-int				put_image(t_scene *scene_now, t_mlx_show *the_show);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				*get_color(t_v3 origin, t_v3 ray, t_objs *inter, t_scene *sc);
 size_t			ft_strlen(const char *s);
