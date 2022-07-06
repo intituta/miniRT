@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:34:19 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:36:33 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int	operate_key_press(int key, t_scene *sc)
 {
 	if (key == 53)
 		exit(0);
+	if (key == 0 || key == 1 || key == 2 || key == 13)
+	{
+		printf("key OK\n");
+	}
 }
 
 int	exit_program(char *str)
