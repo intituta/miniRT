@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 19:56:49 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:48:51 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct scene
 
 int				ft_isspace(char c);
 int				color_error(int *col);
-int				check_all(t_scene *sc);
 int				exit_program(char *str);
 int				operate_key_press(int key);
 int				object_error(t_objs *this);
@@ -99,6 +98,7 @@ char			*concat_here(char *str1, char *str2, int read);
 char			*get_some_i(int *things, int how_many, char *where_from);
 char			*get_some_d(t_v3 *things, int how_many, char *where_from);
 
+void			check_all(t_scene *sc);
 void			check_parse(t_scene *sc);
 void			initialize_v3(t_v3 *this);
 void			ft_putstr_fd(char *s, int fd);

@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:43:41 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:48:37 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	put_image(t_scene *sc, t_mlx_show *the_show)
 	return (0);
 }
 
-int	check_all(t_scene *sc)
+void	check_all(t_scene *sc)
 {
 	t_objs		*it;
 	t_v3		aux;
@@ -119,5 +119,4 @@ int	check_all(t_scene *sc)
 			exit_program("Error\nObject formatting error\n");
 		it = it->next;
 	}
-	return (0);
 }

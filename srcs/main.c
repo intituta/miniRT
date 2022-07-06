@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:43:50 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 10:47:47 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	main(int argc, char **argv)
 	parsing(file_str, sc_now);
 	check_all(sc_now);
 	the_show = init_mlx(sc_now);
-	put_image(sc_now, the_show);
+	if (put_image(sc_now, the_show))
+		return (1);
 	return (0);
 }
