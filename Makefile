@@ -6,7 +6,7 @@
 #    By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 14:37:55 by kferterb          #+#    #+#              #
-#    Updated: 2022/07/05 18:07:08 by kferterb         ###   ########.fr        #
+#    Updated: 2022/07/06 11:23:20 by kferterb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME			=	miniRT
 CC				=	gcc
 CFLAGC			=	-Wall -Werror -Wextra
 RM				=	rm -f
-HEADER_DIR		=	inculdes/
 SRCS_DIR		=	srcs/
-HEADER			=	$(addprefix $(HEADER_DIR),	minirt.h)
+HEADER_DIR		=	inculdes/
+HEADER			=	$(addprefix $(HEADER_DIR), minirt.h)
 MLX				=	-L minilibx -lmlx -framework OpenGL -framework AppKit
-SRCS			=	$(addprefix $(SRCS_DIR), errors.c intersect_cyl.c main.c parse_elements1.c str_utils.c vector_operations.c ft_calloc.c intersections.c math_calculs.c parse_elements2.c str_utils2.c ft_split.c light_color.c prepare_to_show.c read_rt.c struct_fts.c)
+SRCS			=	$(addprefix $(SRCS_DIR),main.c	errors.c	parse_elements1.c	parse_elements2.c	utils.c	utils2.c	intersections.c	intersect_cyl.c	vector_operations.c	math_calculs.c	light_color.c	prepare_to_show.c	read_rt.c	struct_fts.c	ft_split.c)
 OBJS			=	$(SRCS:%.c=%.o)
 .PHONY			:	all clean fclean re
 all				:	$(NAME)

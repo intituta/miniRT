@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:05:52 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:18:58 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,33 @@ size_t	ft_strlen(const char *s)
 	while (s[count])
 		count++;
 	return (count);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*s_out;
+
+	i = 0;
+	if (!s)
+		return ;
+	s_out = (char *)s;
+	while (i < n)
+	{
+		s_out[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char	*cpy;
+
+	cpy = malloc(nmemb * size);
+	if (!cpy)
+		exit_program("Error\nMemory allocation failed !\n");
+	ft_bzero(cpy, size * nmemb);
+	return (cpy);
 }
 
 char	*concat_here(char *str1, char *str2, int read)
