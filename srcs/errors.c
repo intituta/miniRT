@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 20:13:40 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:25:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	key_hook(int key, t_scene *sc)
 	if (key == 53 || key == 12 || key == 14
 		|| key == 13 || key == 1 || key == 0 || key == 2)
 		if (put_image(sc))
-			exit_program("Error\nInvalid put image\n");
+			exit_program("Invalid put image\n");
 }
 
 int	exit_program(char *str)

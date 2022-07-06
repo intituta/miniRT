@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:09 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:53:40 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:24:54 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	parse_object(t_scene *sc, char *begin)
 
 	if ((ft_strncmp(begin, "sp", 2) && ft_strncmp(begin, "pl", 2)
 			&& ft_strncmp(begin, "cy", 2)) || !ft_isspace(begin[2]))
-		exit_program("ERROR: unknown element\n");
+		exit_program("unknown element\n");
 	ob = push_new_object(&(sc->obj_list));
 	if (!ob)
 		return (-1);

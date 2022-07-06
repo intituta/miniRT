@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:04 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 19:58:47 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:24:42 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,23 +99,23 @@ void	check_all(t_scene *sc)
 
 	check_parse(sc);
 	if (color_error(sc->a_color) || color_error(sc->f_light->color))
-		exit_program("Error\nWrong color formatting\n");
+		exit_program("Wrong color formatting\n");
 	if (sc->a_lum < 0 || sc->a_lum > 1)
-		exit_program("Error\nAmbiance light error\n");
+		exit_program("Ambiance light error\n");
 	initialize_v3(&aux);
 	if (distance3(sc->camera->or, aux) > 1
 		|| distance3(sc->camera->or, aux) < -1
 		|| distance3(sc->camera->or, aux) == 0
 		|| sc->camera->params.x < 0 || sc->camera->params.x > M_PI)
-		exit_program("Error\nCamera error\n");
+		exit_program("Camera error\n");
 	if (sc->f_light->params.x < 0 || sc->f_light->params.x > 1
 		|| color_error(sc->f_light->color))
-		exit_program("Error\nWrong focused light parmeters\n");
+		exit_program("Wrong focused light parmeters\n");
 	it = sc->obj_list;
 	while (it)
 	{
 		if (object_error(it))
-			exit_program("Error\nObject formatting error\n");
+			exit_program("Object formatting error\n");
 		it = it->next;
 	}
 }

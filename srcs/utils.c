@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_utils.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:40:26 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:18:58 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:24:07 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	cpy = malloc(nmemb * size);
 	if (!cpy)
-		exit_program("Error\nMemory allocation failed !\n");
+		exit_program("Memory allocation failed !\n");
 	ft_bzero(cpy, size * nmemb);
 	return (cpy);
 }

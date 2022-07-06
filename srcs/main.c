@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 20:14:02 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:23:45 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 void	check_parse(t_scene *sc)
 {
 	if (!sc->obj_list)
-		exit_program("Error\nNo figures\n");
+		exit_program("No figures\n");
 	if (!sc->camera)
-		exit_program("Error\nNo camera\n");
+		exit_program("No camera\n");
 	if (!sc->f_light)
-		exit_program("Error\nNo light\n");
+		exit_program("No light\n");
 }
 
 t_scene	*init_struct(void)
@@ -50,7 +50,7 @@ t_mlx_show	*init_mlx(t_scene *sc)
 
 	the_show = malloc(sizeof(t_mlx_show));
 	if (!the_show)
-		exit_program("Error\nAllocation Impossible\n");
+		exit_program("Allocation impossible\n");
 	the_show->mlx_ptr = mlx_init();
 	the_show->mlx_img = mlx_new_image(the_show->mlx_ptr, sc->width, sc->height);
 	the_show->data = mlx_get_data_addr(the_show->mlx_img,
@@ -68,19 +68,19 @@ int	main(int argc, char **argv)
 	t_scene		*sc;
 
 	if (argc < 2 || argc > 3 || file_error(argc, argv))
-		exit_program("Error\nWrong Arguments\nUsage: ./miniRT *.rt\n");
+		exit_program("Wrong Arguments\n\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		exit_program("Error\nCouln't read or find file\n");
+		exit_program("No read or find file\n");
 	file_str = ft_read(fd);
 	if (!ft_strlen(file_str))
-		exit_program("Error\nInvalid arguments\n");
+		exit_program("Invalid arguments\n");
 	sc = init_struct();
 	parsing(file_str, sc);
 	check_all(sc);
 	sc->the_show = init_mlx(sc);
 	if (put_image(sc))
-		exit_program("Error\nInvalid put image\n");
+		exit_program("Invalid put image\n");
 	mlx_hook(sc->the_show->win_ptr, 2, 1L, key_hook, sc);
 	mlx_hook(sc->the_show->win_ptr, 17, 1L, exit_program, NULL);
 	mlx_loop(sc->the_show->mlx_ptr);
