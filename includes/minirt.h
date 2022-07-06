@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:10:28 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:14:41 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,37 @@ typedef struct scene
 	t_objs			*obj_list;
 }	t_scene;
 
+void			check_all(t_scene *sc);
+void			check_parse(t_scene *sc);
+void			initialize_v3(t_v3 *this);
+void			ft_putstr_fd(char *s, int fd);
+void			*ft_calloc(size_t nmemb, size_t size);
+
+char			*ft_read(int fd);
+char			*advance_through(char *this);
+char			**ft_split(char const *s, char c);
+char			*concat_here(char *str1, char *str2, int read);
+char			*get_some_i(int *things, int how_many, char *where_from);
+char			*get_some_d(t_v3 *things, int how_many, char *where_from);
+
+double			vcos(t_v3 a, t_v3 b);
+double			ft_atof(const char *str);
+double			dot_p(t_v3 one, t_v3 other);
+double			distance3(t_v3 one, t_v3 other);
+double			inter_plane(t_v3 origin, t_v3 ray, t_objs *object);
+double			inter_sphere(t_v3 origin, t_v3 ray, t_objs *object);
+double			inter_cylinder(t_v3 origin, t_v3 ray, t_objs *object);
+double			compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int proc);
+
+t_v3			v_dup(t_v3 this);
+t_v3			normalize(t_v3 these3);
+t_v3			scale_v(t_v3 v, double n);
+t_v3			sub(t_v3 one, t_v3 other);
+t_v3			add_v(t_v3 one, t_v3 other);
+t_v3			cross_product(t_v3 one, t_v3 other);
+t_v3			rotate_cam(t_v3 origin, t_v3 trans, t_v3 up_v);
+t_objs			*push_new_object(t_objs **begin_list);
+
 int				ft_isspace(char c);
 int				color_error(int *col);
 int				exit_program(char *str);
@@ -77,37 +108,5 @@ int				put_image(t_scene *scene_now, t_mlx_show *the_show);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				*get_color(t_v3 origin, t_v3 ray, t_objs *inter, t_scene *sc);
 size_t			ft_strlen(const char *s);
-
-double			vcos(t_v3 a, t_v3 b);
-double			ft_atof(const char *str);
-double			dot_p(t_v3 one, t_v3 other);
-double			distance3(t_v3 one, t_v3 other);
-double			inter_plane(t_v3 origin, t_v3 ray, t_objs *object);
-double			inter_sphere(t_v3 origin, t_v3 ray, t_objs *object);
-double			inter_cylinder(t_v3 origin, t_v3 ray, t_objs *object);
-double			compute_plane(t_v3 origin, t_v3 ray, t_objs *obj, int proc);
-
-char			*ft_read(int fd);
-char			*advance_through(char *this);
-char			**ft_split(char const *s, char c);
-char			*concat_here(char *str1, char *str2, int read);
-char			*get_some_i(int *things, int how_many, char *where_from);
-char			*get_some_d(t_v3 *things, int how_many, char *where_from);
-
-void			check_all(t_scene *sc);
-void			check_parse(t_scene *sc);
-void			initialize_v3(t_v3 *this);
-void			ft_putstr_fd(char *s, int fd);
-void			*ft_calloc(size_t nmemb, size_t size);
-
-t_v3			v_dup(t_v3 this);
-t_v3			normalize(t_v3 these3);
-t_v3			scale_v(t_v3 v, double n);
-t_v3			sub(t_v3 one, t_v3 other);
-t_v3			add_v(t_v3 one, t_v3 other);
-t_v3			cross_product(t_v3 one, t_v3 other);
-t_v3			rotate_cam(t_v3 origin, t_v3 trans, t_v3 up_v);
-
-t_objs			*push_new_object(t_objs **begin_list);
 
 #endif
