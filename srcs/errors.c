@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 20:25:19 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:45:08 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,20 @@ int	key_hook(int key, t_scene *sc)
 		sc->camera->coord.x -= 0.5;
 	else if (key == 2)
 		sc->camera->coord.x += 0.5;
-	if (key == 53 || key == 12 || key == 14
-		|| key == 13 || key == 1 || key == 0 || key == 2)
-		if (put_image(sc))
-			exit_program("Invalid put image\n");
+	else if (key == 89)
+		sc->f_light->coord.y -= 0.5;
+	else if (key == 92)
+		sc->f_light->coord.y += 0.5;
+	else if (key == 91)
+		sc->f_light->coord.z -= 0.5;
+	else if (key == 87)
+		sc->f_light->coord.z += 0.5;
+	else if (key == 86)
+		sc->f_light->coord.x += 0.5;
+	else if (key == 88)
+		sc->f_light->coord.x -= 0.5;
+	if (put_image(sc))
+		exit_program("Invalid put image\n");
 }
 
 int	exit_program(char *str)
