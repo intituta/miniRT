@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 10:47:47 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:12:25 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ int	main(int argc, char **argv)
 	check_all(sc_now);
 	the_show = init_mlx(sc_now);
 	if (put_image(sc_now, the_show))
-		return (1);
+		exit_program("Error\nInvalid put image\n");
 	return (0);
 }
