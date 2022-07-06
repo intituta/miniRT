@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:12:25 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:33:39 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_mlx_show	*init_mlx(t_scene *sc)
 			&the_show->bpp, &the_show->size_line, &the_show->endian);
 	the_show->win_ptr = mlx_new_window(the_show->mlx_ptr, sc->width,
 			sc->height, "miniRT");
-	mlx_hook(the_show->win_ptr, 2, (1L << 0), operate_key_press, NULL);
+	mlx_key_hook(the_show->win_ptr, operate_key_press, sc);
 	mlx_hook(the_show->win_ptr, 17, (1L << 17), exit_program, NULL);
 	the_show->bpp = 600;
 	return (the_show);

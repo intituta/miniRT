@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 11:14:41 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:34:45 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ t_objs			*push_new_object(t_objs **begin_list);
 int				ft_isspace(char c);
 int				color_error(int *col);
 int				exit_program(char *str);
-int				operate_key_press(int key);
 int				object_error(t_objs *this);
 int				file_error(int argc, char **argv);
 int				parse_light(t_scene *sc, char *begin);
 int				parse_camera(t_scene *sc, char *begin);
 int				parse_object(t_scene *sc, char *begin);
+int				operate_key_press(int key, t_scene *sc);
 int				parsing(char *all, t_scene	*this_scene);
 int				parse_ambiance(t_scene *sc, char *begin);
 int				put_image(t_scene *scene_now, t_mlx_show *the_show);

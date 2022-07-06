@@ -6,13 +6,13 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 17:46:06 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:34:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-int	operate_key_press(int key)
+int	operate_key_press(int key, t_scene *sc)
 {
 	if (key == 53)
 		exit(0);
