@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:59:49 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:05:45 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	operate_key_press(int key, t_scene *sc)
 	if (key == 53)
 		exit(0);
 	else if (key == 12)
-		sc->camera->coord.y = sc->camera->coord.y - 1;
+		sc->camera->coord.y = sc->camera->coord.y - 0.25;
 	else if (key == 14)
-		sc->camera->coord.y = sc->camera->coord.y + 1;
+		sc->camera->coord.y = sc->camera->coord.y + 0.25;
 	else if (key == 13)
-		sc->camera->coord.z = sc->camera->coord.z - 1;
+		sc->camera->coord.z = sc->camera->coord.z - 0.5;
 	else if (key == 1)
-		sc->camera->coord.z = sc->camera->coord.z + 1;
+		sc->camera->coord.z = sc->camera->coord.z + 0.5;
 	else if (key == 0)
-		sc->camera->coord.x = sc->camera->coord.x - 1;
+		sc->camera->coord.x = sc->camera->coord.x - 0.25;
 	else if (key == 2)
-		sc->camera->coord.x = sc->camera->coord.x + 1;
+		sc->camera->coord.x = sc->camera->coord.x + 0.25;
 	if (put_image(sc))
 		exit_program("Error\nInvalid put image\n");
 }
