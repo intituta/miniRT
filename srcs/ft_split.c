@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kferterb <kferterb@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:28 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:31 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:38:24 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../includes/minirt.h"
 
 static int	count_words(char *str, char c)
 {

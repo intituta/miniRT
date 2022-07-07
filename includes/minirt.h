@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 12:09:19 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:39:22 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <math.h>
 # include <stdio.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "../minilibx/mlx.h"

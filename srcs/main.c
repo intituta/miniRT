@@ -6,12 +6,10 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 12:09:11 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:39:14 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
 #include "../includes/minirt.h"
 
 void	key_hook2(int key, t_scene *sc)
