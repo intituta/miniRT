@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/06 20:23:45 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 09:48:06 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 	t_scene		*sc;
 
 	if (argc < 2 || argc > 3 || file_error(argc, argv))
-		exit_program("Wrong Arguments\n\n");
+		exit_program("Wrong Arguments\n");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit_program("No read or find file\n");
