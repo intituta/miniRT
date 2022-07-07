@@ -6,13 +6,21 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 09:48:06 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 10:18:33 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include "../includes/minirt.h"
+
+void	print_guide(void)
+{
+	printf("Camera: W,A,S,D move the cam. ");
+	printf("Q and E raise and lower the cam.\n");
+	printf("Light: Num 8,4,5,6 move the light. ");
+	printf("Num 7 and 9 raise and lower the light.\n");
+}
 
 void	check_parse(t_scene *sc)
 {
@@ -83,6 +91,7 @@ int	main(int argc, char **argv)
 		exit_program("Invalid put image\n");
 	mlx_hook(sc->the_show->win_ptr, 2, 1L, key_hook, sc);
 	mlx_hook(sc->the_show->win_ptr, 17, 1L, exit_program, NULL);
+	print_guide();
 	mlx_loop(sc->the_show->mlx_ptr);
 	return (0);
 }
