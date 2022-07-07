@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 12:03:52 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:09:11 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,6 @@ int	key_hook(int key, t_scene *sc)
 	else if (key == 2)
 		sc->camera->coord.x -= 0.5;
 	key_hook2(key, sc);
-}
-
-void	check_parse(t_scene *sc)
-{
-	if (!sc->obj_list)
-		exit_program("No figures\n");
-	if (!sc->camera)
-		exit_program("No camera\n");
-	if (!sc->f_light)
-		exit_program("No light\n");
 }
 
 t_scene	*init_struct(void)
@@ -122,7 +112,6 @@ int	main(int argc, char **argv)
 		exit_program("Invalid put image\n");
 	mlx_hook(sc->the_show->win_ptr, 2, 1L, key_hook, sc);
 	mlx_hook(sc->the_show->win_ptr, 17, 1L, exit_program, NULL);
-	print_guide();
 	mlx_loop(sc->the_show->mlx_ptr);
 	return (0);
 }

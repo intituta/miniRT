@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:38:03 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 11:52:04 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:09:19 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct scene
 	t_mlx_show		*the_show;
 }	t_scene;
 
-void			print_guide(void);
 void			check_all(t_scene *sc);
 void			check_parse(t_scene *sc);
 void			initialize_v3(t_v3 *this);

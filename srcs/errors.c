@@ -6,18 +6,20 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 11:51:31 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:09:01 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-void	print_guide(void)
+void	check_parse(t_scene *sc)
 {
-	printf("Camera: W,A,S,D move the cam. ");
-	printf("Q and E raise and lower the cam.\n");
-	printf("Light: Num 8,4,5,6 move the light. ");
-	printf("Num 7 and 9 raise and lower the light.\n");
+	if (!sc->obj_list)
+		exit_program("No figures\n");
+	if (!sc->camera)
+		exit_program("No camera\n");
+	if (!sc->f_light)
+		exit_program("No light\n");
 }
 
 int	exit_program(char *str)
