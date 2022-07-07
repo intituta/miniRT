@@ -6,7 +6,7 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:53 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 10:18:33 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:03:52 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,43 @@
 #include <unistd.h>
 #include "../includes/minirt.h"
 
-void	print_guide(void)
+void	key_hook2(int key, t_scene *sc)
 {
-	printf("Camera: W,A,S,D move the cam. ");
-	printf("Q and E raise and lower the cam.\n");
-	printf("Light: Num 8,4,5,6 move the light. ");
-	printf("Num 7 and 9 raise and lower the light.\n");
+	if (key == 89)
+		sc->f_light->coord.y += 0.5;
+	else if (key == 92)
+		sc->f_light->coord.y -= 0.5;
+	else if (key == 91)
+		sc->f_light->coord.z -= 0.5;
+	else if (key == 87)
+		sc->f_light->coord.z += 0.5;
+	else if (key == 86)
+		sc->f_light->coord.x += 0.5;
+	else if (key == 88)
+		sc->f_light->coord.x -= 0.5;
+	if (key > -1 && key < 3 || key > 11 && key < 15
+		|| key == 53 || key > 85 && key < 93 && key != 90)
+		if (put_image(sc))
+			exit_program("Invalid put image\n");
+}
+
+int	key_hook(int key, t_scene *sc)
+{	
+	if (key == 53)
+		exit(0);
+	if (key == 12)
+		sc->camera->coord.y += 0.5;
+	else if (key == 14)
+		sc->camera->coord.y -= 0.5;
+	else if (key == 13)
+		sc->camera->coord.z -= 0.5;
+	else if (key == 1)
+		sc->camera->coord.z += 0.5;
+	else if (key == 0)
+		sc->camera->coord.x += 0.5;
+	else if (key == 2)
+		sc->camera->coord.x -= 0.5;
+	key_hook2(key, sc);
 }
 
 void	check_parse(t_scene *sc)

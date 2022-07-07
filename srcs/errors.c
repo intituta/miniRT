@@ -6,42 +6,18 @@
 /*   By: kferterb <kferterb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:39:11 by kferterb          #+#    #+#             */
-/*   Updated: 2022/07/07 11:45:16 by kferterb         ###   ########.fr       */
+/*   Updated: 2022/07/07 11:51:31 by kferterb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-int	key_hook(int key, t_scene *sc)
-{	
-	if (key == 53)
-		exit(0);
-	if (key == 12)
-		sc->camera->coord.y += 0.5;
-	else if (key == 14)
-		sc->camera->coord.y -= 0.5;
-	else if (key == 13)
-		sc->camera->coord.z -= 0.5;
-	else if (key == 1)
-		sc->camera->coord.z += 0.5;
-	else if (key == 0)
-		sc->camera->coord.x += 0.5;
-	else if (key == 2)
-		sc->camera->coord.x -= 0.5;
-	else if (key == 89)
-		sc->f_light->coord.y += 0.5;
-	else if (key == 92)
-		sc->f_light->coord.y -= 0.5;
-	else if (key == 91)
-		sc->f_light->coord.z -= 0.5;
-	else if (key == 87)
-		sc->f_light->coord.z += 0.5;
-	else if (key == 86)
-		sc->f_light->coord.x += 0.5;
-	else if (key == 88)
-		sc->f_light->coord.x -= 0.5;
-	if (put_image(sc))
-		exit_program("Invalid put image\n");
+void	print_guide(void)
+{
+	printf("Camera: W,A,S,D move the cam. ");
+	printf("Q and E raise and lower the cam.\n");
+	printf("Light: Num 8,4,5,6 move the light. ");
+	printf("Num 7 and 9 raise and lower the light.\n");
 }
 
 int	exit_program(char *str)
